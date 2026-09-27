@@ -1,0 +1,4 @@
+pair,dif_diff,dif_diff_ci,dif_stream_A_benign,mean_loss_diff
+iforest-logreg,5.37,"[1.00,5.98]",23.6,0.0007
+iforest-rf,1859.31,"[37.72,251.46]",23.6,0.2164
+logreg-rf,1868.86,"[36.85,251.52]",21.83,0.2156

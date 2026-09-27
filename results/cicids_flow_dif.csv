@@ -1,0 +1,16 @@
+day,feature,dif_b_headline,dif_b_batch,dif_b_sd,dif_a_asshipped,n_b,n_eff_b,estimable
+Mon,Flow Duration,28.2,5.9,1.8,43.5,67000,2378.2,True
+Mon,Flow Bytes/s,1.0,1.1,0.0,1.1,67000,60192.5,True
+Mon,Flow Packets/s,5.7,4.3,1.2,5.7,67000,11747.6,True
+Mon,Flow IAT Mean,18.1,5.9,2.0,12.0,67000,3698.4,True
+Mon,Bwd Packet Length Mean,38.6,8.0,1.2,44.9,67000,1737.3,True
+Tue,Flow Duration,12.2,5.5,1.1,61.0,67000,5495.2,True
+Tue,Flow Bytes/s,1.0,1.1,0.0,1.1,67000,63192.6,True
+Tue,Flow Packets/s,10.5,4.2,1.3,5.5,67000,6410.5,True
+Tue,Flow IAT Mean,8.2,4.9,1.3,6.4,67000,8148.7,True
+Tue,Bwd Packet Length Mean,17.5,5.5,1.9,13.6,67000,3830.6,True
+Wed,Flow Duration,38.2,8.9,2.9,62.7,67000,1756.1,True
+Wed,Flow Bytes/s,64.0,28.3,0.3,62.9,67000,1047.3,True
+Wed,Flow Packets/s,31.6,14.9,0.5,26.0,67000,2122.4,True
+Wed,Flow IAT Mean,20.5,6.6,1.7,17.1,67000,3264.1,True
+Wed,Bwd Packet Length Mean,15.3,6.9,0.6,17.3,67000,4392.2,True

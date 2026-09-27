@@ -1,0 +1,56 @@
+paper_id,venue,stratum,year,title,domain,time_aware_split,reports_ci_or_test,public_dataset,distribution_used,time_order_recoverable,include,criterion_invoked,screener,date
+PMC12656321,Sensors(PMC),volume,2025,Semantic analysis + self-supervised embeddings IoT IDS,IoT-NIDS,unclear,yes-95%CI-10splits,IoT/sensor,unclear,unclear,candidate,,SoheibS1,2026-09-20
+nature-s41598-025-92852-6,Scientific Reports,volume,2025,Improved model for intrusion detection in IoT,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+PMC12215491,Scientific Reports,volume,2025,Smart deep learning model for enhanced IoT IDS,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+springer-s13635-025-00202-w,J Info Security(Springer),volume,2025,DL IDS for IoT: scalable efficient,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2604.21623,arXiv,volume,2026,A-THENA: time-aware hybrid encoding early IDS IoT,IoT-NIDS,yes-time-aware,unclear,CICIoT2023?,has-timestamp?,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2502.11470,arXiv,volume,2025,Optimized detection cyber-attacks IoT hybrid DL,IoT-NIDS,unclear,unclear,CICIoT2023;UNSW,mixed,unclear,candidate,,SoheibS1,2026-09-20
+etasr-9490,ETASR,volume,2025,Comprehensive study DL models IoT IDS,IoT-NIDS,no-kfold?,unclear,Bot-IoT,pcap-variant,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2508.19450,arXiv,volume,2025,CITADEL continual anomaly IoT IDS,IoT-NIDS,yes-continual,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+mdpi-FI-16-8-284,Future Internet(MDPI),volume,2024,Transformer multi-class CIC-IoT-2023,IoT-NIDS,unclear,unclear,CICIoT2023,has-timestamp,unclear,candidate,,SoheibS1,2026-09-20
+mdpi-electronics-15-5-938,Electronics(MDPI),volume,2025,Lightweight multi-class IDS edge IoT,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+springer-CV-AE,Springer chapter,volume,2025,CV-AE hybrid IoT IDS autoencoder,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+SR2026-47264,Scientific Reports,volume,2026,Hybrid FS IoMT IDS (MI + metaheuristic),IoMT-NIDS,unclear,yes-Wilcoxon+CohenD-5seeds,CICIoMT2024;IoMT-TrafficData,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+arxiv-2604.06254,arXiv,volume,2026,SE-ViT + BiLSTM IDS IIoT/IoMT,IoMT-NIDS,unclear,unclear,IIoT;IoMT,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2605.16707,arXiv,volume,2026,Tsetlin machine IDS IoMT on-device,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+arxiv-2509.10563,arXiv,volume,2025,Explainable ML CICIoMT2024,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+SD-S1389128626003713,Computer Networks,core,2026,Robust AI IDS IoMT feature selection,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+frontiers-fmed-2025,Frontiers Medicine,volume,2025,DRL robust IDS IoMT,IoMT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2506.18114,arXiv,volume,2025,Dynamic temporal positional encodings early IDS IoT,IoT-NIDS,yes-time-aware,unclear,CICIoT2023,has-timestamp,yes,candidate,,SoheibS1,2026-09-20
+hidden2026,preprints.org,volume-unref,2026,Evaluation Protocol Is the Hidden Variable,IoT-NIDS-eval,yes,yes-iid-bootstrap-CI,flow benchmarks,mixed,partial,include-exhibit,,SoheibS1,2026-09-20
+nature-s41598-025-32183-8,Scientific Reports,volume,2025,HED-ID edge-deployable explainable IDS metaheuristic,IIoT-NIDS,unclear,yes-10runs-mean+/-std+NIST,UNSW-NB15+,has-time,unclear,candidate,,SoheibS1,2026-09-20
+nature-s41598-026-50690-0,Scientific Reports,volume,2026,Lightweight energy-aware IDS IIoT TinyML,IIoT-NIDS,unclear,unclear,Edge-IIoTset,csv,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2607.00553,arXiv,volume,2026,Cross-domain generalization failure lightweight IIoT IDS,IIoT-NIDS,yes-cross-domain,unclear,Edge-IIoT;UNSW,mixed,unclear,candidate,,SoheibS1,2026-09-20
+PMC11623291,(PMC),volume,2024,RT-Cabi IoT anomaly edge collaboration,IoT-NIDS,unclear,unclear,Edge-IIoT;UNSW,csv,unclear,candidate,,SoheibS1,2026-09-20
+SD-S2542660525001453,Internet of Things(Elsevier),core,2025,Evaluating/enhancing IDS in IoMT: domain-specific datasets,IoMT-NIDS,unclear,unclear,CICIoMT2024+,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+rg-399705827,(review/benchmark),volume,2025,Comprehensive benchmarking IDS IoMT CICIoMT2024,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+springer-978-981-96-3381-4_24,Springer chapter,volume,2025,Using CICIoMT2024 for improved IDS,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,candidate,,SoheibS1,2026-09-20
+SD-S0016003224008615,J Franklin Inst,core,2024,Intelligent parameter-based in-network IDS IoT,IoT-NIDS,unclear,unclear,UNSW-NB15;BoT-IoT,mixed,unclear,candidate,,SoheibS1,2026-09-20
+ieee-10968274,IEEE conf,volume,2025,IDS at edge computing DL UNSW-NB15,IoT-NIDS,unclear,unclear,UNSW-NB15,has-time,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2501.13962,arXiv,volume,2025,Attention LSTM-CNN adaptive attack detection IIoT,IIoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2410.01016,arXiv,volume,2024,ML-assisted IDS IoT security,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+ieee-tnsm-cvt-2024,IEEE TNSM,core,2024,ConvViT meta-learning edge traffic classification,IoT-traffic,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+eswa-flowtransformer-2024,Expert Syst Appl,core,2024,FlowTransformer flow-based NIDS framework,NIDS,unclear,unclear,CICIDS;NF datasets,GeneratedLabelledFlows?,unclear,candidate,,SoheibS1,2026-09-20
+SD-S1084804524001577,JNCA,core,2024,Lightweight stacking ensemble attack detection IoT/IIoT,IIoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2602.12183,arXiv,volume,2026,Unknown attack detection IoT with LLMs,IoT-NIDS,unclear,yes-data-efficient-runs?,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+ijcsm-fed-iiot,IJCSM,volume,2025,Robust energy-efficient federated IDS IIoT,IIoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2511.18240,arXiv,volume,2025,Carbon-aware IDS DRL sustainable IoT edge,IoT-NIDS,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+arxiv-2503.05700,arXiv,volume,2025,Network anomaly detection distributed edge,edge-anomaly,unclear,unclear,public,unclear,unclear,candidate,,SoheibS1,2026-09-20
+red-mnstate-1158,thesis,EXCLUDE,2024,ML novel cyber attacks healthcare (thesis),IoMT,na,na,na,na,exclude,3-venue(thesis not in frame),SoheibS1,2026-09-20
+arxiv-2410.09043,arXiv,EXCLUDE,2024,VAE KD XAI in-vehicle NIDS,in-vehicle,na,na,na,na,exclude,1-domain(in-vehicle not IoT/IoMT),SoheibS1,2026-09-20
+arxiv-2512.14958,arXiv,EXCLUDE,2025,IDS internet of vehicles ML,in-vehicle,na,na,na,na,exclude,1-domain(IoV),SoheibS1,2026-09-20
+mallidi-widm-70008,WIREs DMKD,EXCLUDE,2025,Systematic review ML/DL IoT IDS FS+balancing,IoT-review,na,na,na,na,exclude,1-domain(review not primary study),SoheibS1,2026-09-20
+lew2026,Frontiers Comms Nets,frame-xcheck,2026,Deployment-oriented eval DL-NIDS (29-paper review),review,na,grades-reporting-presence,29 papers,na,frame-crosscheck,"review(subset xcheck, not frame)",SoheibS1,2026-09-20
+arxiv-2602.05594,arXiv,EXCLUDE,2026,Contextualized NetFlow DL-NIDS survey,survey,na,na,na,na,exclude,1-domain(survey),SoheibS1,2026-09-20
+arxiv-2504.07839,arXiv,EXCLUDE,2025,DL-based IDS survey,survey,na,na,na,na,exclude,1-domain(survey),SoheibS1,2026-09-20
+ieee-tnsm-dm-ids-2025,IEEE TNSM,core,2025,DM-IDS dual-modal fusion NIDS,NIDS,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+ieee-tnsm-logfit-2024,IEEE TNSM,core,2024,LogFiT log anomaly fine-tuned LM,log-anomaly,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+SD-S1570870525000186,Internet of Things(Elsevier),volume,2025,Optimized detection cyber-attacks IoT hybrid DL (publ. of arxiv-2502.11470),IoT-NIDS,unclear,unclear,CICIoT2023;UNSW,mixed,supersedes-arxiv-2502.11470,pool-uncoded,,SoheibS1,2026-09-20
+nature-s41598-025-20047-0,Scientific Reports,volume,2025,Enhanced IDS IoT FFNN + ML,IoT-NIDS,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+nature-s41598-025-32697-1,Scientific Reports,volume,2025,TACNet temporal attention conv IDS IoT/IIoT,IoT-NIDS,unclear,unclear,CICIDS2018;EdgeIIoT;N-BaIoT,mixed,unclear,pool-uncoded,,SoheibS1,2026-09-20
+spj-icomputing-0127,Intelligent Computing(SPJ),volume,2024,GAN-CNN-LSTM time-series IDS IoT signal features,IoT-NIDS,unclear-timeseries,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+arxiv-2412.17452,arXiv,volume-preprint,2024,TCN-based NIDS,NIDS,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+arxiv-2504.15375,arXiv,volume-preprint,2025,FLARE lightweight robust eval IoT IDS,IoT-NIDS-eval,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+arxiv-2509.15555,arXiv,volume-preprint,2025,Hybrid DL-FL IDS IoT/5G edge,IoT-NIDS,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+ieee-tifs-selfsup-2024,IEEE TIFS,core,2024,Online self-supervised DL for IDS,NIDS,unclear,unclear,public,unclear,unclear,pool-uncoded,,SoheibS1,2026-09-20
+SD-S2590005626004741,ScienceDirect(Elsevier),core?,2026,Optimized lightweight ensemble DL IDS IoMT,IoMT-NIDS,unclear,unclear,CICIoMT2024,flow-csv-no-timestamp,no,pool-uncoded,,SoheibS1,2026-09-20

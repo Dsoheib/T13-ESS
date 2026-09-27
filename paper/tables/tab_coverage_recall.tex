@@ -1,0 +1,13 @@
+%
+% cell = unconditional coverage $\pm$ Monte Carlo SE; parenthesis = (conditional coverage $\pm$ its Monte Carlo SE, computable fraction) when that fraction is below 0.995
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+scenario & \cellbr{naive}{normal} & \cellbr{ESS}{plug-in} & \cellbr{episode}{bootstrap} & \cellbr{moving}{block}\\
+\midrule
+iid (control) & $0.95\pm0.01$ & $0.95\pm0.01$ & $0.94\pm0.01$ & $0.94\pm0.01$ \\
+campaigns only & \cellbr{$0.70\pm0.02$}{$(0.95\pm0.01,\,0.74)$} & \cellbr{$0.70\pm0.02$}{$(0.95\pm0.01,\,0.74)$} & \cellbr{$0.24\pm0.02$}{$(0.32\pm0.02,\,0.74)$} & \cellbr{$0.61\pm0.02$}{$(0.82\pm0.02,\,0.74)$} \\
+background only & $0.87\pm0.01$ & $0.93\pm0.01$ & $0.85\pm0.02$ & $0.88\pm0.01$ \\
+both & \cellbr{$0.32\pm0.02$}{$(0.45\pm0.03,\,0.72)$} & \cellbr{$0.54\pm0.02$}{$(0.76\pm0.02,\,0.72)$} & \cellbr{$0.22\pm0.02$}{$(0.30\pm0.02,\,0.73)$} & \cellbr{$0.47\pm0.02$}{$(0.65\pm0.03,\,0.73)$} \\
+long-range ($H{=}0.8$) & \cellbr{$0.28\pm0.02$}{$(0.38\pm0.03,\,0.74)$} & \cellbr{$0.49\pm0.02$}{$(0.67\pm0.02,\,0.73)$} & \cellbr{$0.20\pm0.02$}{$(0.27\pm0.02,\,0.74)$} & \cellbr{$0.46\pm0.02$}{$(0.62\pm0.03,\,0.74)$} \\
+\bottomrule
+\end{tabular*}

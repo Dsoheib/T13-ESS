@@ -1,0 +1,12 @@
+%
+% cell = unconditional coverage $\pm$ Monte Carlo SE; parenthesis = (conditional coverage $\pm$ its Monte Carlo SE, computable fraction) when that fraction is below 0.995
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+scenario & \cellbr{FPR}{naive} & \cellbr{FPR}{ESS-Wilson} & \cellbr{recall}{naive} & \cellbr{recall}{ESS} & \cellbr{AUC}{i.i.d.} & \cellbr{AUC}{block}\\
+\midrule
+iid (control) & $0.96\pm0.01$ & $0.96\pm0.01$ & $0.95\pm0.01$ & $0.96\pm0.01$ & $0.93\pm0.01$ & $0.93\pm0.01$ \\
+campaigns only & $0.95\pm0.01$ & $0.95\pm0.01$ & \cellbr{$0.95\pm0.01$}{$(0.95\pm0.01,\,0.99)$} & \cellbr{$0.95\pm0.01$}{$(0.96\pm0.01,\,0.99)$} & \cellbr{$0.91\pm0.01$}{$(0.92\pm0.01,\,0.99)$} & \cellbr{$0.89\pm0.01$}{$(0.90\pm0.01,\,0.99)$} \\
+background only & $0.56\pm0.02$ & $0.94\pm0.01$ & $0.91\pm0.01$ & $0.95\pm0.01$ & $0.92\pm0.01$ & $0.95\pm0.01$ \\
+both & $0.58\pm0.02$ & $0.95\pm0.01$ & $0.48\pm0.02$ & $0.88\pm0.01$ & $0.37\pm0.02$ & $0.86\pm0.01$ \\
+\bottomrule
+\end{tabular*}

@@ -1,0 +1,32 @@
+paper_id,uncertainty_kind,source,status
+PMC12656321,test-set-CI,fulltext,resolved
+PMC12215491,none,fulltext,resolved
+PMC13269888,fold-dispersion,fulltext,resolved
+PMC12816630(HED-ID),seed-dispersion,fulltext,resolved
+PMC12216364,none,fulltext,resolved
+arxiv-2604.21623(A-THENA),none,fulltext,resolved
+arxiv-2506.18114,none,fulltext,resolved
+arxiv-2508.19450(CITADEL),seed-dispersion,fulltext,resolved
+arxiv-2602.12183,none,fulltext,resolved
+hidden2026,test-set-CI,fulltext,resolved
+arxiv-2502.11470,none,arxiv-abstract,resolved
+arxiv-2604.06254,none,arxiv-abstract,resolved
+arxiv-2605.16707,none,arxiv-abstract,resolved
+arxiv-2607.00553,none,arxiv-abstract,resolved
+arxiv-2509.15555,none,arxiv-abstract,resolved
+arxiv-2501.13962,none,arxiv-abstract,resolved
+arxiv-2504.15375,none,arxiv-abstract,resolved
+arxiv-2410.01016,none,arxiv-abstract,resolved
+PMC11623291(RT-Cabi),none,results-table,resolved
+frontiers-fmed-2025,none,results-table(CV but averaged->no dispersion shown),resolved
+SR2026-47264,unknown,snippet(abstract mentions Wilcoxon/5-seeds; table not seen),unknown
+nature-32697-1(TACNet),unknown,snippet,unknown
+spj-icomputing-0127,unknown,snippet,unknown
+mdpi-FI-16-8-284,unknown,snippet,unknown
+etasr-9490,unknown,metadata-only,unknown
+SD-S2542660525001453,unknown,snippet-paywalled,unknown
+SD-S1389128626003713,unknown,snippet-paywalled,unknown
+SD-S0016003224008615,unknown,snippet-paywalled,unknown
+SD-S1084804524001577,unknown,snippet-paywalled,unknown
+SD-S1570870525000186,unknown,snippet-paywalled,unknown
+rg-399705827,unknown,snippet,unknown

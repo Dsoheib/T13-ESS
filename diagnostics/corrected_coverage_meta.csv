@@ -1,0 +1,6 @@
+scenario,mean_dif_score,mean_neff_score,frac_mbb_reliable
+iid,1.0,4838.0,1.0
+campaigns_only,56.3,502.2,1.0
+dependent,29.7,208.3,1.0
+lrd_H0.8,84.3,110.0,1.0
+heavy_tail,28.2,212.4,1.0

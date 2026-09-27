@@ -1,0 +1,29 @@
+key,type,doi_or_url,resolved,read_status,note
+llmeval2026autocorr,preprint,arXiv:2604.14414,yes,abstract-verified,Schessl; cited S2 as adjacent-domain precedent (was mislabeled placeholder; author verified)
+llmeval2026resolution,preprint,arXiv:2605.30315,yes,abstract-verified,Kotawala; cited S2 adjacent precedent (author verified)
+hiremath2026hed,preprint,arXiv:2604.04993,yes,read-in-full,HED; cited S2; rewritten from full text per P87
+sommer2010outside,conf,10.1109/SP.2010.25,yes,cited-not-read,now cited S2 (named)
+diebold1995comparing,journal,10.1080/07350015.1995.10524599,yes,cited-not-read,now cited S2 (attribution only)
+giacomini2006tests,journal,10.1111/j.1468-0262.2006.00718.x,yes,cited-not-read,now cited S2 (attribution only)
+paxson1995failure,journal,10.1109/90.392383,yes,read-in-full,IEEE/ACM ToN 3(3):226-244 1995
+leland1994self,journal,10.1109/90.282603,yes,cited-not-read,ToN 2(1):1-15 1994 (attribution)
+geyer1992practical,journal,10.1214/ss/1177011137,yes,cited-not-read,Stat Science 7(4) 1992; instrument method -> also Appendix A
+kunsch1989jackknife,journal,10.1214/aos/1176347265,yes,read-in-full,Ann Statist 17(3) 1989
+obuchowski1997nonparametric,journal,10.2307/2533958,yes,cited-not-read,Biometrics 53(2) 1997; lineage only (C1)
+bay2023dependency,journal,10.3390/stats6040068,yes,read-in-full,Stats 6(4):1088-1103 2023
+roberts2017cross,journal,10.1111/ecog.02881,yes,core-verified,Ecography 40(8) 2017; attribution
+bergmeir2012use,journal,10.1016/j.ins.2011.12.028,yes,cited-not-read,Inf Sciences 191 2012; attribution
+dehling2010ustat,journal,10.1016/j.jmva.2009.06.002,yes,cited-not-read,J Multivar Anal 101(1) 2010; instrument method -> Appendix A
+arp2022dos,conf,usenix.org/conference/usenixsecurity22/presentation/arp,yes,read-in-full,USENIX Sec 2022
+pendlebury2019tesseract,conf,usenix.org/conference/usenixsecurity19/presentation/pendlebury,yes,cited-not-read,USENIX Sec 2019 (TESSERACT); attribution
+lew2026deployment,journal,10.3389/frcmn.2026.1863367,yes,read-in-full,Frontiers Comms Nets 7 2026
+APPENDIX-A politis1994stationary,journal,10.1080/01621459.1994.10476870,yes,cited-not-read,estimator (stationary bootstrap) -> cite in Appendix A (P89)
+APPENDIX-A politis2004automatic,journal,10.1198/016214504000000692,yes,cited-not-read,estimator (Politis-White block length) -> Appendix A
+APPENDIX-A patton2009correction,journal,10.1198/jbes.2009.06046,yes,cited-not-read,Patton correction -> Appendix A
+APPENDIX-A flegal2010batch,journal,10.1214/09-AOS735,yes,cited-not-read,batch-means ESS -> Appendix A
+APPENDIX-A hall1998lrd,journal,10.5705/statisticasinica (v8 p1189),yes,cited-not-read,subsampling under LRD -> Appendix A
+APPENDIX-A lahiri2003resampling,book,10.1007/978-1-4757-3803-2,yes,cited-not-read,resampling for dependent data -> Appendix A
+APPENDIX-A politis1999subsampling,book,10.1007/978-1-4612-1554-7,yes,cited-not-read,subsampling -> Appendix A (if used)
+DATASET sharafaldin2018cicids,dataset,10.5220/0006639801080116,yes,cited-not-read,CICIDS2017 [dataset] UNB/Sharafaldin 2018 (not HF mirror)
+SOFTWARE t13instrument,software,Zenodo-DOI-pending,no,released,artifact via Zenodo DOI from tag submission-v1 (external)
+REMOVED hidden2026variable,preprint,preprints.org,n/a,removed,uncited -> deleted from bib

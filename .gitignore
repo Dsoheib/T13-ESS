@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.DS_Store
+data/raw/*
+!data/raw/.gitignore
+paper/*.pdf
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+ml_env/
+
+# Local export staged for the public repository upload; not part of this tree.
+repo/

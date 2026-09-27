@@ -1,0 +1,13 @@
+%
+% cell = unconditional coverage $\pm$ Monte Carlo SE; parenthesis = (conditional coverage $\pm$ its Monte Carlo SE, computable fraction) when that fraction is below 0.995
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+scenario & naive Wilson & ESS-Wilson & \cellbr{moving}{block}\\
+\midrule
+iid (control) & $0.95\pm0.01$ & $0.95\pm0.01$ & $0.95\pm0.01$ \\
+campaigns only & $0.96\pm0.01$ & $0.96\pm0.01$ & $0.92\pm0.01$ \\
+background only & $0.60\pm0.02$ & $0.93\pm0.01$ & $0.86\pm0.02$ \\
+both & $0.59\pm0.02$ & $0.92\pm0.01$ & $0.87\pm0.01$ \\
+long-range ($H{=}0.8$) & $0.40\pm0.02$ & $0.55\pm0.02$ & $0.60\pm0.02$ \\
+\bottomrule
+\end{tabular*}

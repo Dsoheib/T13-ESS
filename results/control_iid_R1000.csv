@@ -1,0 +1,11 @@
+scenario,split,metric,interval,cov_uncond,mc_se_uncond,cov_cond,mc_se_cond,comp_rate,R,n_computable
+iid,temporal,fpr,naiveWilson,0.956,0.006,0.956,0.006,1.0,1000,1000
+iid,temporal,fpr,corrWilson,0.959,0.006,0.959,0.006,1.0,1000,1000
+iid,temporal,fpr,mbb,0.945,0.007,0.945,0.007,1.0,1000,1000
+iid,temporal,recall,naiveNormal,0.953,0.007,0.953,0.007,1.0,1000,1000
+iid,temporal,recall,ess,0.964,0.006,0.964,0.006,1.0,1000,1000
+iid,temporal,recall,mbb,0.943,0.007,0.943,0.007,1.0,1000,1000
+iid,temporal,recall,episode,0.94,0.008,0.94,0.008,1.0,1000,1000
+iid,temporal,auc,naiveBoot,0.933,0.008,0.933,0.008,1.0,1000,1000
+iid,temporal,auc,mbb,0.924,0.008,0.924,0.008,1.0,1000,1000
+iid,temporal,auc,bjk,0.933,0.008,0.933,0.008,1.0,1000,1000

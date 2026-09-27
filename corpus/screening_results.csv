@@ -1,0 +1,11 @@
+paper_id,in_frame,stratum,fulltext_status,split,uncertainty_kind,dependence_correction,evidence
+PMC12656321,yes,volume(Sensors),resolved,random-splits,test-set-CI(random-split dispersion),no,'ten random data splits to compute mean and 95% CI'
+PMC12215491,yes,volume(SciRep),resolved,5-fold CV,none(point est),no,'5-fold cross-validation'; perfect-score point estimates
+PMC13269888,yes,volume(SciRep),resolved,5-fold CV,fold-dispersion + fold-level paired t-test,no,'mean +/- std over five-fold CV'; 'paired two-tailed t-tests'
+PMC12816630(HED-ID),yes,volume(SciRep),resolved,random 70/15/15,seed-dispersion,no,'repeated ten times with different random seeds (0-9)'
+PMC12216364,yes,volume(SciRep),resolved,random 80/20,none(point est),no,'training 0.8 / testing 0.2'; single point estimates
+arxiv-2604.21623(A-THENA),no-exhibit,arXiv,resolved,k-fold CV,none,no,'k-fold cross-validation'; point estimates
+arxiv-2506.18114,no-exhibit,arXiv,resolved,hold-out(unspecified),none,no,point estimates only
+arxiv-2508.19450(CITADEL),no-exhibit,arXiv,resolved,random 70/30,seed-dispersion(aggregate std),no,'std 18.1%' single aggregate
+arxiv-2602.12183,no-exhibit,arXiv,resolved,random 8:1:1,"none(10-run averaged, no spread)",no,'averaged over 10 runs'
+hidden2026,no-exhibit,preprints.org,known,time-aware,test-set-CI(i.i.d. bootstrap),no,time-aware split + naive i.i.d. bootstrap CI (motivating exhibit)

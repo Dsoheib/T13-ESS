@@ -1,0 +1,6 @@
+window,length_s,series,dif_geyer,dif_batch,n_eff,flag
+early,21,inter_arrival,2.1,1.8,43576,
+early,21,packets_per_1s,1.0,1.0,22,underpowered
+mid,203,inter_arrival,163.4,26.9,481,
+mid,203,packet_size,1505,52.3,52,estimator-disagree
+late,128,inter_arrival,152.0,16.5,190,

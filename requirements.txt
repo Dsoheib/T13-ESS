@@ -1,0 +1,12 @@
+# Pinned to the ACTUAL interpreter that produced results/ (frozen 2026-09-19).
+# See env/ACTUAL_ENV.txt for the full freeze. env/environment.yml was reconciled to these
+# same pins on 2026-09-24 (it previously declared Python 3.11); the two now agree, and
+# every committed CSV and table was generated under them.
+python_version==3.13.7  # informational; enforce via pyenv/conda
+numpy==2.4.4
+scipy==1.17.1
+pandas==3.0.2
+scikit-learn==1.8.0
+matplotlib==3.10.8
+pytest==9.1.1
+jinja2==3.1.6

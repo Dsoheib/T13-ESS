@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "t13-ess: dependence-aware intervals for intrusion-detection evaluation"
+message: "If you use this software, please cite the accompanying paper."
+type: software
+authors:
+  - family-names: Cherih
+    given-names: Soheib
+  - family-names: Lyazid
+    given-names: Sabri
+  - family-names: Kazar
+    given-names: Okba
+version: 0.4.0
+date-released: 2026-09-27
+license: MIT

@@ -1,0 +1,10 @@
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}llc@{}}
+\toprule
+interval & estimand & coverage\\
+\midrule
+naive-normal FPR & population (deployment) & 0.83\\
+naive-normal FPR & threshold-conditional & 0.93\\
+Wilson FPR & threshold-conditional & 0.95\\
+\bottomrule
+\end{tabular*}
+% source: diagnostics/p1_estimand.py -> diagnostics/p1_iid.csv, iid, R=1000

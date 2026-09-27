@@ -1,0 +1,13 @@
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}llccccc@{}}
+\toprule
+cell & $n$ & mean $L$ & \cellbr{target offset}{(sd)} & \cellbr{bootstrap sd /}{sampling sd} & \cellbr{coverage vs}{reference} & \cellbr{coverage vs}{$E[\widehat{\mathrm{AUC}}_n]$}\\
+\midrule
+both & 5000 & 240 & -0.19 & 0.60 & 0.74 & 0.72 \\
+both & 20000 & 524 & -0.12 & 0.89 & 0.87 & 0.86 \\
+campaigns only & 5000 & 237 & -0.14 & 0.87 & 0.86 & 0.85 \\
+campaigns only & 20000 & 533 & -0.05 & 0.91 & 0.89 & 0.88 \\
+iid (control) & 5000 & 3 & +0.05 & 0.96 & 0.91 & 0.92 \\
+iid (control) & 20000 & 3 & +0.08 & 1.02 & 0.94 & 0.94 \\
+\bottomrule
+\end{tabular*}
+% source diagnostics/p122_auc_mechanics.py -> diagnostics/p122_auc.csv

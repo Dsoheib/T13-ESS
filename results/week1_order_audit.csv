@@ -1,0 +1,5 @@
+dataset,n_rows,n_attack,n_benign,frac_dt_le_0,unique_ts_frac,detectors,n_train,n_test,n_attack_train,n_attack_test,n_benign_test
+CICIDS2017-Mon,67000,0,67000,0.6299,0.0733,['iforest'],33500,33500,0,0,33500
+CICIDS2017-Tue,67000,7917,59083,0.734,0.0014,"['iforest', 'logreg', 'rf']",33500,33500,3092,4825,28675
+CICIDS2017-Wed,67000,4973,62027,0.7571,0.0018,"['iforest', 'logreg', 'rf']",33500,33500,807,4166,29334
+AAL-MQTT-bridge,7772,2422,5350,,,"['iforest', 'logreg', 'rf']",3886,3886,784,1638,2248

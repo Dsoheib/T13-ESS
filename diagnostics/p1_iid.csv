@@ -1,0 +1,17 @@
+metric,interval,estimand,coverage,mc_se,R_used
+fpr,naive,pop,0.83,0.012,1000
+fpr,naive,win,0.831,0.012,1000
+fpr,naive,cond,0.932,0.008,1000
+fpr,ess,pop,0.84,0.012,1000
+fpr,ess,win,0.833,0.012,1000
+fpr,ess,cond,0.937,0.008,1000
+fpr,wilson,cond,0.953,0.007,1000
+fpr,mbb,cond,0.915,0.009,1000
+rec,naive,pop,0.917,0.009,1000
+rec,naive,win,0.912,0.009,1000
+rec,naive,cond,0.941,0.007,1000
+rec,ess,pop,0.927,0.008,1000
+rec,ess,win,0.927,0.008,1000
+rec,ess,cond,0.951,0.007,1000
+auc,naive,pop,0.944,0.007,1000
+auc,mbb,pop,0.935,0.008,1000

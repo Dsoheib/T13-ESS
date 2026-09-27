@@ -1,0 +1,11 @@
+\begin{tabular*}{\tabwidth}{@{\extracolsep{\fill}}>{\raggedright\arraybackslash}p{2.2cm}cc>{\raggedright\arraybackslash}p{2.15cm}@{}}
+\toprule
+ grain (dataset) & \cellbr{qualifying}{DIF ($n$)} & \cellbr{all-series}{median} & other series\\
+\midrule
+packet (CICIDS pcap) & 2.1 (1) & 152 & 3 range, 1 not-est. \\
+flow (CICIDS as-shipped) & 3.4 (4) & 18 & 11 range, 0 not-est. \\
+window (AAL, owned) & 3.5 (3) & 96 & 1 range, 10 not-est., 2 determ. \\
+\bottomrule
+\end{tabular*}
+% The qualifying entry is the median of the qualifying series. n=1 is that single series, not a distributional median.
+% flow qualifying is the as-shipped (a) order; the within-minute-shuffle (b) median is 17, Table~\ref{tab:flowdif}

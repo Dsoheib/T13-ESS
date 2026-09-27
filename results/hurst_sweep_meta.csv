@@ -1,0 +1,6 @@
+scenario,split,mean_dif_score,mean_neff_score,mean_n_attack_test,rho,p_stay,H,innov
+lrd_H0.55,temporal,44.0,1086.7,271.5,0.0,0.995,0.55,
+lrd_H0.6,temporal,45.3,853.4,267.5,0.0,0.995,0.6,
+lrd_H0.7,temporal,47.2,365.3,249.8,0.0,0.995,0.7,
+lrd_H0.8,temporal,70.5,144.9,267.3,0.0,0.995,0.8,
+lrd_H0.9,temporal,130.2,64.4,253.3,0.0,0.995,0.9,

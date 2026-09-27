@@ -1,0 +1,7 @@
+arm,interval,n,R,seed,cov_uncond,mc_se_uncond,cov_cond,comp_rate
+temporal,naiveWilson,20000,500,1,0.6,0.022,0.6,1.0
+temporal,essWilson,20000,500,1,0.948,0.01,0.948,1.0
+shuffled,naiveWilson,20000,500,1,0.708,0.02,0.708,1.0
+shuffled,essWilson,20000,500,1,0.71,0.02,0.71,1.0
+restored,naiveWilson,20000,500,1,0.708,0.02,0.708,1.0
+restored,essWilson,20000,500,1,0.942,0.01,0.942,1.0

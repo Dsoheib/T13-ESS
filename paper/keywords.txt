@@ -1,0 +1,1 @@
+effective sample size; intrusion detection; confidence intervals; serial dependence; block bootstrap; evaluation methodology; autocorrelation

@@ -1,0 +1,32 @@
+dataset,grain,family,series,n,dif_geyer,dif_batch,dif_ci_lo,dif_ci_hi,dif_ci_reliable,n_eff_geyer,reliable,agree
+AAL-MQTT-bridge,window,label,y,7772,169.01,13.33,1.0,24.89,False,46.0,False,False
+AAL-MQTT-bridge,window,feature,n_messages|benign,2422,375.78,35.71,6.47,11.91,False,6.4,False,False
+AAL-MQTT-bridge,window,feature,n_emergency|benign,2422,405.51,37.37,2.79,5.67,False,6.0,False,False
+AAL-MQTT-bridge,window,feature,alert_frequency_per_hour|benign,2422,405.7,37.38,2.79,5.67,False,6.0,False,False
+AAL-MQTT-bridge,window,feature,normal_emergency_ratio|benign,2422,6.26,6.33,2.24,6.85,True,386.6,True,True
+AAL-MQTT-bridge,window,feature,inter_alert_interval_mean|benign,2422,90.46,9.88,1.7,2.79,False,26.8,False,False
+AAL-MQTT-bridge,window,feature,inter_interval_variance|benign,2422,88.16,8.56,1.06,3.15,False,27.5,False,False
+AAL-MQTT-bridge,window,feature,burst_score|benign,2422,409.34,39.14,1.01,11.36,False,5.9,False,False
+AAL-MQTT-bridge,window,feature,topic_diversity|benign,2422,286.17,28.05,1.76,5.13,False,8.5,False,False
+AAL-MQTT-bridge,window,feature,time_sin|benign,2422,25.28,19.17,16.84,31.06,False,95.8,True,True
+AAL-MQTT-bridge,window,feature,time_cos|benign,2422,25.19,13.38,17.25,31.85,False,96.1,True,True
+AAL-MQTT-bridge,window,feature,payload_entropy|benign,2422,174.49,17.73,2.06,4.43,False,13.9,False,False
+AAL-MQTT-bridge,window,feature,alert_rate_acceleration|benign,2422,47.95,14.79,1.0,7.32,False,50.5,False,False
+AAL-MQTT-bridge,window,feature,regularity_coefficient|benign,2422,1.96,2.51,1.11,2.39,True,1237.7,True,True
+AAL-MQTT-bridge,window,feature,temporal_clustering_score|benign,2422,3.51,3.37,2.02,3.31,True,691.0,True,True
+AAL-MQTT-bridge,window,feature,freq_rolling_mean_5w|benign,2422,423.85,39.12,5.36,7.14,False,5.7,False,False
+AAL-MQTT-bridge,window,feature,freq_rolling_std_5w|benign,2422,102.01,27.02,1.0,20.22,False,23.7,False,False
+CICIDS2017-Wed,flow,label,y,150000,11061.51,325.15,1.0,1385.03,,,False,False
+CICIDS2017-Wed,flow,feature,Flow Duration|benign,67155,63.48,36.61,42.19,69.7,,,True,True
+CICIDS2017-Wed,flow,feature,Total Fwd Packets|benign,67155,1.0,1.11,1.99,6.97,,,True,True
+CICIDS2017-Wed,flow,feature,Flow Bytes/s|benign,67155,62.73,42.75,1.0,73.64,,,True,True
+CICIDS2017-Wed,flow,feature,Flow Packets/s|benign,67155,26.01,19.91,1.0,45.18,,,True,True
+CICIDS2017-Wed,flow,feature,Flow IAT Mean|benign,67155,17.39,7.95,1.0,15.92,,,True,False
+CICIDS2017-Wed,flow,feature,Fwd Packet Length Mean|benign,67155,549.54,53.6,1.0,110.96,,,False,False
+CICIDS2017-Wed,flow,feature,Bwd Packet Length Mean|benign,67155,17.25,9.45,6.58,9.64,,,True,True
+CICIDS2017-Wed,flow,detector,iforest|score(benign),3653,23.6,17.94,11.8,32.66,,,True,True
+CICIDS2017-Wed,flow,detector,iforest|alarm@0.01,3653,1.43,1.64,1.05,1.75,,,True,True
+CICIDS2017-Wed,flow,detector,logreg|score(benign),3653,21.83,17.15,11.24,27.53,,,True,True
+CICIDS2017-Wed,flow,detector,logreg|alarm@0.01,3653,1.47,1.36,1.0,1.77,,,True,True
+CICIDS2017-Wed,flow,detector,rf|score(benign),3653,2.98,2.7,1.0,4.54,,,True,True
+CICIDS2017-Wed,flow,detector,rf|alarm@0.01,3653,1.76,2.04,1.0,2.25,,,True,True

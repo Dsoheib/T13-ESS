@@ -1,0 +1,7 @@
+scenario,split,mean_dif_score,mean_neff_score,mean_n_attack_test,rho,p_stay,H,innov
+bg_iid__lab_scatter,temporal,1.0,4850.7,250.2,0.0,0.05,,
+bg_iid__lab_campaign,temporal,39.0,1769.2,252.7,0.0,0.995,,
+bg_ar__lab_scatter,temporal,19.2,268.8,249.8,0.9,0.05,,
+bg_ar__lab_campaign,temporal,25.7,222.2,254.2,0.9,0.995,,
+lrd_H0.8,temporal,70.5,144.9,267.3,0.0,0.995,0.8,
+heavy_tail,temporal,25.2,229.0,241.7,0.9,0.995,,t3

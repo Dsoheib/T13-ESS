@@ -1,0 +1,5 @@
+Monday alarm dependence widens one false-positive interval by 1.55
+False-positive, recall, and AUC intervals are different constructions
+ESS--Wilson holds to H=0.6 and degrades monotonically above it
+One close Wednesday ranking flips; large detector gaps do not
+Read the agreement gate on scores: the alarm indicator hides long memory
