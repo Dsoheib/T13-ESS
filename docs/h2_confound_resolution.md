@@ -1,7 +1,7 @@
 # H2 confound resolution: P35 (order), P37 (multi-day), P36 (differential) — 2026-09-19
 
 Instrument frozen at `sim-frozen`. CICIDS2017 GeneratedLabelledFlows (HF mirror), benign flows,
-cap 67k/day. `results/p35_order_confound.csv`.
+cap 67k/day. `results/order_confound.csv`.
 
 ## P35 — is the flow-grain DIF serial, clustered, or a sub-minute ordering artifact?
 Three-way per feature: (a) as-shipped row order; (b) within-minute order randomised, R=20;

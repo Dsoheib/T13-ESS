@@ -1,0 +1,9 @@
+cell,n,interval,truth_auc_diff,cov_uncond,mc_se_uncond,mean_width,R,B
+iid (control),5000,iid bootstrap,0.0258,0.93,0.015,0.0293,300,200
+iid (control),5000,moving block,0.0258,0.923,0.015,0.0291,300,200
+campaigns only,5000,iid bootstrap,0.0269,0.687,0.027,0.0365,300,200
+campaigns only,5000,moving block,0.0269,0.593,0.028,0.036,300,200
+background only,5000,iid bootstrap,0.0201,0.937,0.014,0.0207,300,200
+background only,5000,moving block,0.0201,0.933,0.014,0.0207,300,200
+both,5000,iid bootstrap,0.0218,0.66,0.027,0.0246,300,200
+both,5000,moving block,0.0218,0.6,0.028,0.027,300,200

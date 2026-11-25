@@ -104,7 +104,7 @@ inclusion_log `stratum`.
   the reporting requirement, n and access ceiling stated in the opening sentences, no prevalence
   language. Proceeding on NO institutional access (access question closed).
 - SF-2 promoted: scaled corpus coding of uncertainty_kind (target n>=30) + SF-2 simulation
-  (diagnostics/sf2_seed_vs_testset.py) run against sim-frozen (additive; frozen modules untouched).
+  (diagnostics/seed_vs_testset.py) run against sim-frozen (additive; frozen modules untouched).
 - 2026-09-22  DEVIATION (bootstrap replicates B). The prereg fixes the coverage simulation at
   n=20000, R=500, B=1000. The canonical reported run (results/coverage_sim.csv, Table 1) used
   n=5000, R=500, B=200; the n=20000 confirmation run of record (coverage_sim_n20000.csv,
@@ -184,7 +184,7 @@ inclusion_log `stratum`.
   estimators agree about the wrong series. Applied to the benign SCORE series the same rule tracks
   coverage: 1.00 at H<=0.6, 0.89 at 0.7, 0.40 at 0.8, 0.11 at 0.9. The reporting rule is restated
   on the score series; the previous draft stated one row in terms of H, which an analyst cannot
-  observe. diagnostics/p127_gate_vs_memory.py -> diagnostics/p127_gate.csv; Table 13 and
+  observe. diagnostics/gate_vs_memory.py -> diagnostics/gate.csv; Table 13 and
   Figure 3. check_abstract.py fails the build if either gate ordering stops holding.
 
 - **P128 Elsevier generative-AI declaration was missing from the manuscript.** It existed only in
@@ -263,3 +263,48 @@ inclusion_log `stratum`.
   t critical value on ~5 campaign clusters, does worse than the reported plug-in (0.848) and damages
   the campaigns-only cell (0.950 to 0.915). No defensible replacement exists at this cluster count,
   so nothing was changed and the shortfall stands as reported. Recorded as future work.
+
+## 2026-09-28 — P138: the paired AUC difference, and a re-scoped ranking claim
+
+An external review observed that the manuscript scores the single-detector FPR, recall and AUC
+intervals but never the PAIRED difference, while the motivating use case is choosing between
+detectors and the real-data ranking result (S4.7) is adjudicated by `ci.paired_difference_ci`.
+The observation was correct. `diagnostics/paired_difference_coverage.py` now measures it: two
+detectors on one capture (shared label chain and background, independent detector noise, true gap
+about 0.02), both arms basic bootstrap intervals matching `scripts/metric_level_intervals.py`,
+n=5000, R=300, B=200, seed 0.
+
+RESULT, and it does not follow the single-detector pattern:
+
+  cell              iid bootstrap   moving block
+  iid (control)         0.930          0.923
+  background only       0.937          0.933
+  campaigns only        0.687          0.593
+  both                  0.660          0.600
+
+- Shared background largely CANCELS in a difference: background-only dependence costs almost
+  nothing, where the single-AUC interval was far below nominal in the same background.
+- Shared label clustering does NOT cancel: with campaigns present coverage falls to 0.59-0.69
+  regardless of the background.
+- The ordering REVERSES: in both dependent cells the moving block covers below the i.i.d.
+  bootstrap it is meant to improve on. This is the campaigns-only AUC pathology of S4.1 spanning
+  the whole dependent column rather than one cell.
+
+CONSEQUENCE for the manuscript. The Wednesday logistic-regression minus random-forest comparison
+was written as the i.i.d. interval excluding zero and the moving-block interval including it,
+which reads as the block interval correcting the other. Simulation says the block interval is the
+WORSE-covering of the two for this estimand and construction, in exactly the campaign regime real
+attack traffic has. The sentence is re-scoped: neither construction is validated for the paired
+difference, so that pair is not resolvable with either interval rather than decided by one. The
+abstract and highlights carried the flip as a finding and no longer do. New: S4.7, Table 16, a
+scope-table row, a main-list limitation, and a discussion sentence generalising the lesson (a
+construction that helps one estimand can fail another built from it).
+
+GUARDS. check_abstract.py fails if background-only drops below 0.90, if either campaign cell rises
+above 0.80, or if the moving block stops sitting below the i.i.d. arm in either -- the three
+orderings the new wording rests on. Two tests added: one asserts the generator really shares
+labels and background between the detectors (the premise of the cancellation result), one asserts
+the committed orderings. Both negative-tested.
+
+Also: the abstract dropped the Monday Flow Duration trace figures to make room; they remain in
+Table 1 and S5. The guard's required-token list tracks that change.

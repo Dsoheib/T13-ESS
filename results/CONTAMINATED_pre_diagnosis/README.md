@@ -10,6 +10,6 @@ BEFORE the 2026-09-19 diagnosis. They are invalid because of two defects found i
 2. **Rare-event interval.** FPR (~1%) used the normal / ESS-plugin interval, which
    under-covers near 0 even against the right estimand; the Wilson interval is required.
 
-Diagnosis: `diagnostics/p1_estimand.py` (three-estimand table), `diagnostics/p4_tau_vs_n.py`
+Diagnosis: `diagnostics/estimand_conflation.py` (three-estimand table), `diagnostics/tau_vs_n.py`
 (estimator is sound: AR(1) tau_hat = 19 flat in n). Corrected experiment:
 `diagnostics/corrected_coverage.py` -> the new `results/coverage_sim.csv`.

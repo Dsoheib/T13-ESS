@@ -60,4 +60,4 @@ if __name__ == "__main__":
     df = study(R=a.R)
     pd.set_option("display.width", 200)
     print(df.to_string(index=False))
-    df.to_csv("diagnostics/p4_tau_vs_n.csv", index=False)
+    df.to_csv("diagnostics/tau_vs_n.csv", index=False)

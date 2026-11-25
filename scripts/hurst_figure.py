@@ -3,7 +3,7 @@
 Left: unconditional coverage against the Hurst exponent for the three false-positive
 constructions, from results/hurst_sweep.csv.
 Right: the fraction of replicates the prespecified gate admits, computed on the alarm indicator
-and on the benign score series, against the same coverage curve, from diagnostics/p127_gate.csv.
+and on the benign score series, against the same coverage curve, from diagnostics/gate.csv.
 
 Every point is read from a CSV. No value is typed here.
 """
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# Deterministic output, as in week4_figures.py: keep `make all` idempotent.
+# Deterministic output, as in manuscript_figures.py: keep `make all` idempotent.
 _PDFMETA = {"CreationDate": None}
 
 os.makedirs("paper/figures", exist_ok=True)
@@ -28,7 +28,7 @@ BLOCK = "#9bbb59"
 MASKED = "#8064a2"
 
 hs = pd.read_csv("results/hurst_sweep.csv")
-gt = pd.read_csv("diagnostics/p127_gate.csv")
+gt = pd.read_csv("diagnostics/gate.csv")
 H = np.array(sorted(hs.H.round(2).unique()))
 
 
@@ -92,4 +92,4 @@ for ax in (axl, axr):
 fig.tight_layout()
 fig.savefig("paper/figures/fig_hurst.pdf", bbox_inches="tight", metadata=_PDFMETA)
 fig.savefig("paper/figures/fig_hurst.png", bbox_inches="tight", dpi=300)
-print("wrote fig_hurst from results/hurst_sweep.csv and diagnostics/p127_gate.csv")
+print("wrote fig_hurst from results/hurst_sweep.csv and diagnostics/gate.csv")

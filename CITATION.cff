@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 title: "t13-ess: dependence-aware intervals for intrusion-detection evaluation"
 message: "If you use this software, please cite the accompanying paper."
+repository-code: "https://github.com/Dsoheib/T13-ESS"
+url: "https://github.com/Dsoheib/T13-ESS"
 type: software
 authors:
   - family-names: Cherih
@@ -9,6 +11,6 @@ authors:
     given-names: Sabri
   - family-names: Kazar
     given-names: Okba
-version: 0.4.0
-date-released: 2026-09-27
+version: 0.5.0
+date-released: 2026-11-23
 license: MIT

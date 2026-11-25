@@ -597,8 +597,8 @@ def main():
     out.mkdir(exist_ok=True)
     pd.DataFrame(metrics).to_csv(out / "metric_level_intervals.csv", index=False)
     pd.DataFrame(pairs).to_csv(out / "paired_block_comparisons.csv", index=False)
-    pd.DataFrame(audits).to_csv(out / "week1_order_audit.csv", index=False)
-    verdict = write_gate(ROOT / "docs" / "week1_gate.md", metrics, pairs, audits)
+    pd.DataFrame(audits).to_csv(out / "order_audit.csv", index=False)
+    verdict = write_gate(ROOT / "docs" / "metric_level_gate.md", metrics, pairs, audits)
     print(verdict, flush=True)
     print(f"wrote {out / 'metric_level_intervals.csv'}", flush=True)
 

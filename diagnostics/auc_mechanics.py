@@ -85,7 +85,7 @@ df = pd.DataFrame(rows)[["cell", "n", "reps", "mean_L", "theta_ref", "mean_auc_n
                          "target_offset", "sd_auc_n", "offset_in_sd", "mean_boot_sd",
                          "boot_sd_ratio", "mean_boot_bias", "cov_vs_reference",
                          "cov_vs_mean_auc_n", "cov_gap_from_target"]]
-df.to_csv("diagnostics/p122_auc.csv", index=False)
+df.to_csv("diagnostics/auc_mechanics.csv", index=False)
 pd.set_option("display.width", 250)
 print("\n" + df.to_string(index=False))
-print("\nwrote diagnostics/p122_auc.csv")
+print("\nwrote diagnostics/auc_mechanics.csv")

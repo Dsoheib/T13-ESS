@@ -44,7 +44,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from t13.ci import ess_plugin_ci, naive_normal_ci, wilson, wilson_ess_ci  # noqa: E402
 from t13.dif import block_length, integrated_autocorrelation_time  # noqa: E402
 from t13.sim import _mc_se, _try, markov_labels  # noqa: E402
-from week1_metric_level import cic_dir, load_cicids  # noqa: E402
+from metric_level_intervals import cic_dir, load_cicids  # noqa: E402
 
 SERIES = ("Flow Duration", "Flow Packets/s")
 PRIMARY = "Flow Duration"
@@ -320,7 +320,7 @@ def main():
     meta = pd.DataFrame(metas)
     cov.to_csv(out / "trace_coverage.csv", index=False)
     meta.to_csv(out / "trace_coverage_meta.csv", index=False)
-    verdict = write_gate(ROOT / "docs" / "week2_gate.md", cov, meta)
+    verdict = write_gate(ROOT / "docs" / "trace_coverage_gate.md", cov, meta)
     print(verdict, flush=True)
 
 

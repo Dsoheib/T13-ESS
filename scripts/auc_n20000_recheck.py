@@ -2,7 +2,7 @@
 against the B=150 confirmation. Also reports the iid-control AUC at B=1000 specifically (small-B
 percentile intervals undercover, so part of the ~0.93 control undercoverage may be a B artefact).
 Lean: reuses the generator and the two AUC interval routines only -- no FPR/recall/episode/jackknife.
-Writes results/p102_auc_n20000.csv and prints the comparison.
+Writes results/auc_n20000_recheck.csv and prints the comparison.
 """
 import sys, time, argparse; sys.path.insert(0, "src")
 import numpy as np, pandas as pd
@@ -53,7 +53,7 @@ for name in SCN:
                          moved="MOVED" if (not np.isnan(cse) and abs(d) > cse) else ""))
     print(f"[{name}] done in {time.time()-t:.0f}s", flush=True)
 
-df = pd.DataFrame(rows); df.to_csv("results/p102_auc_n20000.csv", index=False)
+df = pd.DataFrame(rows); df.to_csv("results/auc_n20000_recheck.csv", index=False)
 pd.set_option("display.width", 200)
 print("\n=== P102: AUC coverage at n=20000, B=1000 vs B=150 confirmation ===")
 print(df.to_string(index=False))

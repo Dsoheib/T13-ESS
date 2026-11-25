@@ -10,7 +10,7 @@ Applied instead to the benign SCORE series the same gate tracks coverage: it adm
 the interval works and rejects the cells where it does not.
 
 Additive: reads the frozen generator through t13.sim.generate, changes nothing in it.
-Writes diagnostics/p127_gate.csv.
+Writes diagnostics/gate.csv.
 """
 import sys, argparse
 sys.path.insert(0, "src")
@@ -75,5 +75,5 @@ if __name__ == "__main__":
         print(f"H={H:g} done", flush=True)
 
     out = pd.DataFrame(rows)
-    out.to_csv("diagnostics/p127_gate.csv", index=False)
+    out.to_csv("diagnostics/gate.csv", index=False)
     print(out.to_string(index=False))

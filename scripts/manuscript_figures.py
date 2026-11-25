@@ -142,7 +142,7 @@ ax_a.annotate("block interval includes 0", xy=(float(flip.mbb_hi), -0.12),
 from matplotlib.lines import Line2D
 
 leg = [Line2D([0], [0], color=NAIVE, lw=1.6), Line2D([0], [0], color=AWARE, lw=1.6)]
-ax_f.legend(leg, ["nominal $n$", "ESS--Wilson"], frameon=False, fontsize=7, loc="upper right")
+ax_f.legend(leg, ["nominal $n$", "ESS\u2013Wilson"], frameon=False, fontsize=7, loc="upper right")
 ax_a.legend(leg, ["i.i.d.", "moving block"], frameon=False, fontsize=7, loc="upper center")
 fig.tight_layout()
 fig.savefig("paper/figures/fig_decision.pdf", bbox_inches="tight", metadata=_PDFMETA)

@@ -7,7 +7,7 @@ sys.path.insert(0, "src")
 sys.path.insert(0, "scripts")
 
 from t13.dif import integrated_autocorrelation_time  # noqa: E402
-from week3_recall_clock import (  # noqa: E402
+from recall_clock import (  # noqa: E402
     close_enough,
     geyer_tau_from_rho,
     missing_clock_bounds,

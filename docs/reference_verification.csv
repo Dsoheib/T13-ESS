@@ -27,3 +27,7 @@ APPENDIX-A politis1999subsampling,book,10.1007/978-1-4612-1554-7,yes,cited-not-r
 DATASET sharafaldin2018cicids,dataset,10.5220/0006639801080116,yes,cited-not-read,CICIDS2017 [dataset] UNB/Sharafaldin 2018 (not HF mirror)
 SOFTWARE t13instrument,software,Zenodo-DOI-pending,no,released,artifact via Zenodo DOI from tag submission-v1 (external)
 REMOVED hidden2026variable,preprint,preprints.org,n/a,removed,uncited -> deleted from bib
+barber2023beyond,journal,10.1214/23-AOS2276,yes,abstract-verified,"Barber/Candes/Ramdas/Tibshirani AoS 51(2) 816-845; cited S2 as the alternative distribution-free route under non-exchangeability"
+goldschmidt2025datasets,preprint,arXiv:2502.06688,yes,abstract-verified,"Goldschmidt & Chuda; 89-dataset NIDS survey; cited for release/data-quality limitations"
+guerra2026protocols,preprint,arXiv:2608.01454,yes,abstract-verified,"Guerra et al.; evaluation protocol choices change IDS conclusions; cited S2"
+li2026conformalids,preprint,arXiv:2609.19241,yes,abstract-verified,"Li; conformal prediction applied to IDS calibration; cited S2"

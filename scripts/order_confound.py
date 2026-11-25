@@ -52,6 +52,6 @@ if __name__ == "__main__":
                      "DIF_dedup5tuple(c)": round(c_dedup, 1), "n_dedup": len(first)})
     tab = pd.DataFrame(rows); pd.set_option("display.width", 200)
     print(tab.to_string(index=False))
-    tab.to_csv("results/p35_order_confound.csv", index=False)
+    tab.to_csv("results/order_confound.csv", index=False)
     print("\nInterpretation: (b)->~1 = sub-minute ordering artifact; (c)->~1 = five-tuple clustering "
           "(clustered, Obuchowski); both stay high = genuine serial dependence (Kunsch).")

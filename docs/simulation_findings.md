@@ -5,7 +5,7 @@ hypothesis. Recorded here so they are not laundered into the audit as if pre-pla
 
 ## SF-1 — The conflation gap: test-set CIs undercover the deployment estimand even under independence
 
-Source: `diagnostics/p1_estimand.py`, iid scenario, R=1000, threshold learned on the training
+Source: `diagnostics/estimand_conflation.py`, iid scenario, R=1000, threshold learned on the training
 half.
 
 | interval | estimand | coverage | MC SE |
@@ -37,9 +37,9 @@ n=5000, R=500 (see `diagnostics/DIAGNOSIS_REPORT_v2.md`); n=20000 confirmation p
   background, ≈0.01 across labels; recall/AUC break in the campaign cells. CONFIRMED.
 - **SF-H5 / SF-H7 (episode / effective-epoch floor).** When a test window holds few independent
   attack episodes (n_eff of the attack stream small), no resampling attains nominal coverage for
-  recall; episode-bootstrap coverage rises 0.85→0.95 as episodes 5→200 (`p13_episode.csv`). The
+  recall; episode-bootstrap coverage rises 0.85→0.95 as episodes 5→200 (`episode_curve.csv`). The
   reportable quantity below the floor is the episode count / n_eff, not an interval. CONFIRMED.
-- **SF-H6 (random splits).** REFRAMED after P18 (`p18_within_test.csv`): a random split BOTH
+- **SF-H6 (random splits).** REFRAMED after P18 (`within_test_dependence.csv`): a random split BOTH
   genuinely lowers within-test dependence (benign τ 19.7→10.3, because neighbours are split
   across the partition) AND hides the residual from the estimator (seen τ→1.04 while true τ=10.3),
   so the correction is a no-op and the naive interval still undercovers (FPR 0.72). Temporal-
@@ -69,7 +69,7 @@ put, and DIF does not correct it (different estimand). A third defect of the sam
 reported as its own category (uncertainty_kind), not folded into H3a.
 
 ### SF-2 simulation (P70, additive vs sim-frozen) -- measured divergence
-`diagnostics/sf2_seed_vs_testset.py` (bg_ar__lab_campaign, fixed test set, FPR@1%): the seed-based
+`diagnostics/seed_vs_testset.py` (bg_ar__lab_campaign, fixed test set, FPR@1%): the seed-based
 standard error shrinks while the true test-set sampling sd is constant.
 | K seeds | seed_std | seed_SE | testset_sd(true) | seed_SE/testset_sd |
 |---|---|---|---|---|

@@ -5,7 +5,7 @@ import numpy as np
 sys.path.insert(0, "src")
 sys.path.insert(0, "scripts")
 
-from week2_trace_coverage import (  # noqa: E402
+from trace_coverage import (  # noqa: E402
     NOMINAL_FLOOR,
     draw_scores,
     gate_verdict,

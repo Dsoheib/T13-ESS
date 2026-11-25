@@ -1,4 +1,4 @@
-.PHONY: all test sim tables figures check paper realdata hurst week1 week2 week3 week4
+.PHONY: all test sim tables figures check paper realdata hurst results
 all: test tables figures check paper
 
 # The interpreter used for every rule. The default works for anyone who has installed the
@@ -24,7 +24,7 @@ realdata:
 # H=0.8 arm must reproduce it; `make check` fails if it does not.
 hurst:
 	$(PY) scripts/hurst_sweep.py --H 0.55 0.6 0.7 0.8 0.9 --n 5000 --R 500 --B 200 --seed 0
-	$(PY) diagnostics/p127_gate_vs_memory.py
+	$(PY) diagnostics/gate_vs_memory.py
 
 check: tables
 	$(PY) scripts/check_abstract.py
@@ -34,36 +34,34 @@ sim:
 	$(PY) scripts/run_coverage_sim.py --n 5000 --R 500 --B 200
 	$(PY) scripts/block_length_sensitivity.py --n 5000 --R 500 --B 200
 	$(PY) scripts/hurst_sweep.py --H 0.55 0.6 0.7 0.8 0.9 --n 5000 --R 500 --B 200 --seed 0
-	$(PY) diagnostics/p127_gate_vs_memory.py
-	$(PY) diagnostics/p121_width_vs_estimand.py
-	$(PY) diagnostics/p122_auc_mechanics.py
+	$(PY) diagnostics/gate_vs_memory.py
+	$(PY) diagnostics/paired_difference_coverage.py
+	$(PY) diagnostics/width_vs_estimand.py
+	$(PY) diagnostics/auc_mechanics.py
 tables:
 	$(PY) scripts/dif_headline.py
 	$(PY) scripts/make_tables.py
 figures:
 	$(PY) scripts/graphical_abstract.py
-	$(PY) scripts/week4_figures.py
+	$(PY) scripts/manuscript_figures.py
 	$(PY) scripts/hurst_figure.py
+	$(PY) scripts/pipeline_figure.py
 paper: check
 	cd paper && tectonic main.tex
 
-# Week 1 of the Q1 program: metric-level intervals and paired comparisons.
-week1:
-	$(PY) scripts/week1_metric_level.py
-
-# Week 2 of the Q1 program: trace-driven coverage on Monday benign series.
-week2:
-	$(PY) scripts/week2_trace_coverage.py
-
-# Week 3 of the Q1 program: recall-clock sensitivity, then the manuscript macros.
-week3:
-	$(PY) scripts/week3_recall_clock.py
-	$(PY) scripts/make_tables.py
-	$(PY) scripts/check_abstract.py
-
-# Week 4 of the Q1 program: figures, manuscript macros, abstract check.
-week4:
-	$(PY) scripts/week4_figures.py
-	$(PY) scripts/hurst_figure.py
+# Regenerate the result files that `sim` does not cover: the metric-level intervals on the
+# captures, the trace-driven coverage run, the recall-clock sensitivity, the order-arm experiment,
+# the n=20000 confirmation and the B=1000 sensitivity. Slow; needs the real-data inputs for the
+# first target. Run this and `make sim` to rebuild every committed CSV.
+results:
+	$(PY) scripts/metric_level_intervals.py
+	$(PY) scripts/trace_coverage.py
+	$(PY) scripts/recall_clock.py
+	$(PY) scripts/split_order_arms.py
+	$(PY) scripts/confirm_n20000.py
+	$(PY) scripts/sensitivity_B1000.py
+	$(PY) diagnostics/estimand_conflation.py
+	$(PY) diagnostics/episode_curve.py
+	$(PY) diagnostics/seed_vs_testset.py
 	$(PY) scripts/make_tables.py
 	$(PY) scripts/check_abstract.py

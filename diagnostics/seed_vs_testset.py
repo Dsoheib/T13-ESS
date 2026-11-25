@@ -48,4 +48,4 @@ if __name__ == "__main__":
     print("SF-2: seed_SE -> 0 as K grows while testset_sd is constant -> a field reporting seed "
           "mean+/-std/sqrt(K) drives its stated uncertainty to zero, never estimating the metric's "
           "sampling uncertainty. seed_std itself is the model-fitting component, a different estimand.")
-    df.to_csv("diagnostics/sf2_seed_vs_testset.csv", index=False)
+    df.to_csv("diagnostics/seed_vs_testset.csv", index=False)

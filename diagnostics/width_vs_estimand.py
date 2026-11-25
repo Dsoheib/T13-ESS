@@ -80,7 +80,7 @@ for cell, kw in CELLS.items():
         rows.append(row(cell, n, "recall", d["r_err"], d["r_ess_se"], d["r_naive_se"],
                         d["r_neff"], d["r_ncamp"], reps))
 df = pd.DataFrame(rows)
-df.to_csv("diagnostics/p121_width.csv", index=False)
+df.to_csv("diagnostics/width.csv", index=False)
 pd.set_option("display.width", 220)
 print(df.to_string(index=False))
-print("\nwrote diagnostics/p121_width.csv")
+print("\nwrote diagnostics/width.csv")

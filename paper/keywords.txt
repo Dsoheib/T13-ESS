@@ -1,1 +1,1 @@
-effective sample size; intrusion detection; confidence intervals; serial dependence; block bootstrap; evaluation methodology; autocorrelation
+network security; intrusion detection; evaluation methodology; confidence intervals; effective sample size; serial dependence; block bootstrap

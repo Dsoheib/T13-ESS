@@ -46,4 +46,4 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=5000); ap.add_argument("--R", type=int, default=300)
     a = ap.parse_args()
     df = run(n=a.n, R=a.R)
-    print(df.to_string(index=False)); df.to_csv("diagnostics/p18_within_test.csv", index=False)
+    print(df.to_string(index=False)); df.to_csv("diagnostics/within_test_dependence.csv", index=False)

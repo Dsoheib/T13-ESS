@@ -195,7 +195,7 @@ def main():
     cov = pd.DataFrame(rows)
     out = ROOT / "results" / "recall_clock.csv"
     cov.to_csv(out, index=False)
-    closed = write_gate(ROOT / "docs" / "week3_gate.md", cov)
+    closed = write_gate(ROOT / "docs" / "recall_clock_gate.md", cov)
     print(cov.to_string(index=False), flush=True)
     print("closed" if closed else "not closed", flush=True)
 

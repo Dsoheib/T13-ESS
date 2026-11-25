@@ -1,50 +1,9 @@
-\documentclass[10pt,twocolumn,a4paper]{article}
+%% Journal of Information Security and Applications (Elsevier).
+%% Elsevier CAS double-column class (els-cas-templates, v2.4).
+\documentclass[a4paper,fleqn]{cas-dc}
 
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-
-\IfFileExists{sourcesanspro.sty}{%
-  \usepackage[default,semibold]{sourcesanspro}%
-}{%
-  \usepackage{helvet}%
-}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{newtxsf}
-
-\usepackage{amsmath,amssymb}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{array,tabularx}
-\usepackage[a4paper,margin=0.75in,top=0.9in,bottom=0.9in,
-            columnsep=0.3in,headheight=32pt,headsep=12pt]{geometry}
-\usepackage{setspace}
-\setstretch{1.05}
-\usepackage{xcolor}
-\definecolor{headdark}{RGB}{27,52,73}
-\definecolor{headmid}{RGB}{60,80,100}
-\definecolor{headrule}{RGB}{200,205,215}
-\usepackage{titlesec}
-% Section numbers stay so the text can cite them.
-\titleformat{\section}{\normalsize\bfseries\color{headmid}}{\thesection.}{0.55em}{\MakeUppercase}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}{\normalsize\bfseries\itshape}{}{0pt}{}
-\titlespacing*{\section}{0pt}{1.1\baselineskip}{0.35\baselineskip}
-\titlespacing*{\subsection}{0pt}{0.75\baselineskip}{0.20\baselineskip}
-\titlespacing*{\subsubsection}{0pt}{0.55\baselineskip}{0.15\baselineskip}
-\setcounter{secnumdepth}{2}
-
-\usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
-\emergencystretch=3em
-\hyphenpenalty=1000
-\tolerance=1500
-\hyphenation{Table table Tables tables}
-\usepackage{caption}
-\captionsetup{font=small,labelfont={bf,color=headmid},belowskip=4pt,
-              aboveskip=6pt,justification=justified,singlelinecheck=false,
-              skip=4pt}
-\usepackage{stfloats}
+\usepackage[authoryear]{natbib}
+\usepackage{tabularx}
 \usepackage{placeins}
 \usepackage{float}
 \renewcommand{\topfraction}{0.9}
@@ -54,100 +13,101 @@
 \renewcommand{\dblfloatpagefraction}{0.8}
 \setcounter{topnumber}{3}
 \setcounter{dbltopnumber}{3}
-
-\usepackage[numbers,sort&compress,super,square]{natbib}
-\bibliographystyle{vancouver}
+\emergencystretch=3em
+\hyphenation{Table table Tables tables}
 
 \newcommand{\DIF}{\mathrm{DIF}}
 \newcommand{\neff}{n_{\mathrm{eff}}}
 \newcommand{\tabwidth}{\columnwidth}
 \newcommand{\cellbr}[2]{\begin{tabular}[t]{@{}c@{}}#1\\#2\end{tabular}}
 % Every table body is \small, with the same column padding. A one-column
-% table fills \columnwidth. A full-width table fills \textwidth, which in
-% this layout is the left edge of the first column to the right edge of
-% the second. Captions are set before \tabbody so they are not shrunk twice.
+% table fills \columnwidth. A full-width table fills \textwidth.
 \newcommand{\tabbody}{\small\setlength{\tabcolsep}{3.5pt}\renewcommand{\arraystretch}{1.08}}
 \newcommand{\onetab}{\renewcommand{\tabwidth}{\columnwidth}\tabbody}
 \newcommand{\fulltab}{\renewcommand{\tabwidth}{\textwidth}\tabbody}
-\newbox\highlightbox
-\newenvironment{highlights}{\setbox\highlightbox=\vbox\bgroup\begin{itemize}}{\end{itemize}\egroup}
-\renewenvironment{abstract}{\par\vspace{3pt}\noindent\ignorespaces}{\par}
 \input{tables/corpus_macros.tex}
 \input{tables/prose_macros.tex}
 
-\pagestyle{plain}
-\hypersetup{
-  pdftitle={When Confidence Intervals Assume Independence: Dependence-Aware Intervals for Intrusion-Detection Evaluation},
-  pdfauthor={Soheib Cherih, Sabri Lyazid, and Okba Kazar}
-}
-
 \begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
 
-\twocolumn[{%
-  {\raggedright
-    \noindent{\LARGE\bfseries\color{headdark}%
-      When Confidence Intervals Assume Independence:\par
-      Dependence-Aware Intervals for Intrusion-Detection Evaluation\par}
-    \vspace{10pt}
-    \noindent{\normalsize\bfseries%
-      Soheib Cherih,\textsuperscript{1,*}\;
-      Sabri Lyazid\textsuperscript{1}\;
-      Okba Kazar\textsuperscript{2}\par}
-    \vspace{3pt}
-    \noindent{\footnotesize\itshape%
-      \textsuperscript{1}Intelligent Systems and Cognitive Computing
-      Laboratory (ISCC), Department of Computer Science,
-      University of Mohamed El Bachir El Ibrahimi,
-      Bordj Bou Arreridj, Algeria.\par}
-    \vspace{1pt}
-    \noindent{\footnotesize\itshape%
-      \textsuperscript{2}College of Arts, Sciences \& Information Technology,
-      Department of Computer Science, University of Kalba,
-      Sharjah, United Arab Emirates.\par}
-    \vspace{2pt}
-    \noindent{\footnotesize%
-      \textsuperscript{*}Corresponding author. Soheib Cherih;
-      e-mail:
-      \href{mailto:souhaib.cherrih@univ-bba.dz}{souhaib.cherrih@univ-bba.dz}.
-      Co-authors: Sabri Lyazid,
-      \href{mailto:lyazid.sabri@univ-bba.dz}{lyazid.sabri@univ-bba.dz};
-      Okba Kazar,
-      \href{mailto:Okba.Kazar@ukb.ac.ae}{Okba.Kazar@ukb.ac.ae}.\par}
-  }
-  \vspace{10pt}
-  {\color{headrule}\hrule height 0.6pt}
-  \vspace{8pt}
-  {\raggedright
-    \noindent{\large\bfseries\color{headdark}Abstract}\par
-    \vspace{3pt}
+\shorttitle{Dependence-Aware Evaluation of Network Intrusion Detection Metrics}
+\shortauthors{S. Cherih et~al.}
+
+\title [mode = title]{When Confidence Intervals Assume Independence: Dependence-Aware Evaluation of Network Intrusion Detection Metrics}
+
+\author[1]{Soheib Cherih}[orcid=0009-0006-7045-4958]
+\cormark[1]
+\ead{souhaib.cherrih@univ-bba.dz}
+\credit{Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation,
+  Data curation, Writing -- original draft, Visualization}
+
+\affiliation[1]{organization={Intelligent Systems and Cognitive Computing Laboratory (ISCC),
+                  Department of Computer Science, Faculty of Mathematics and Informatics,
+                  University of Mohamed El Bachir El Ibrahimi},
+                city={Bordj Bou Arreridj},
+                country={Algeria}}
+
+\author[1]{Sabri Lyazid}[orcid=0000-0002-9266-567X]
+\ead{lyazid.sabri@univ-bba.dz}
+\credit{Conceptualization, Methodology, Supervision, Writing -- review \& editing,
+  Project administration}
+
+\author[2]{Okba Kazar}[orcid=0000-0003-0522-4954]
+\ead{Okba.Kazar@ukb.ac.ae}
+\credit{Supervision, Writing -- review \& editing}
+
+\affiliation[2]{organization={Department of Computer Science, College of Arts, Sciences \&
+                  Information Technology, University of Kalba},
+                city={Sharjah},
+                country={United Arab Emirates}}
+
+\cortext[1]{Corresponding author}
+
 \begin{abstract}
-On the clean Monday CICIDS2017 prefix, isolation-forest alarm dependence widens the false-positive interval $\MonIfFprRatio\times$ (dependence-inflation factor $\MonIfFprDif$), changing one close Wednesday ranking but not the large gaps.
-The intervals differ by metric: an ESS-adjusted Wilson plug-in for the false-positive rate, an ESS plug-in on the attack subsequence for recall, a moving-block bootstrap of Mann--Whitney for AUC.
-At $n{=}20000$ in the strongest short-memory cell they cover at $\FprNtwEss$, $\RecallNtwEss$ and $\AucNtwMbb$; on a resampled Monday Flow Duration trace, $\TraceDurEssFive$ and $\TraceDurEssTwenty$ at $n{=}5000$ and $20000$.
-Across $\HGridN$ Hurst exponents it holds to $H{=}0.6$ ($\FprHSix$), then degrades monotonically to $\FprLrdEss$ at $H{=}\LrdH$ and $\FprHNine$ at $H{=}\HGridHi$.
-The estimator-agreement gate must be read on the benign score series, not the alarm indicator the interval uses: on the indicator it admits $\GateAlarmNine$ of replicates at $H{=}\HGridHi$, where coverage is $\FprHNine$, and on the score series $\GateScoreNine$.
-Report ESS--Wilson when those estimators agree and $\neff$ is at least 50; otherwise report $\neff$ and no interval.
-Of \Npool{} screened records \NsfTwoRes{} could be coded, \NsfTwoNone{} reporting no uncertainty; the time-aware frame resolved \NinframeRes{} of \Ninframe{} (\ResRate\%), an illustration, not a prevalence claim.
+Network-security decisions about intrusion detectors rest on confidence intervals for test-set metrics. Intervals that treat flows or windows as independent can be too narrow on serially dependent traffic, misleading detector choice.
+Proposing no new detector, we evaluate one dependence-aware interval per metric: effective-sample-size (ESS) adjusted Wilson for false-positive rate, an ESS plug-in for recall, and a moving-block bootstrap for the area under the ROC curve (AUC).
+Under simulated short-memory dependence at $n{=}20000$, they cover at $\FprNtwEss$, $\RecallNtwEss$ and $\AucNtwMbb$ (nominal $0.95$).
+Under long memory the false-positive interval fails ($\FprLrdEss$ at Hurst exponent $H{=}\LrdH$); an estimator-agreement check catches this, but it must be read on the benign score series, not on the alarms.
+No tested AUC-difference interval is reliable once attack campaigns are present (coverage $\PairBothIid$ i.i.d., $\PairBothMbb$ block bootstrap).
+On CICIDS2017, dependence widens one false-positive interval $\MonIfFprRatio\times$ (inflation factor $\MonIfFprDif$); large detector gaps survive, one close pair does not.
+We recommend ESS--Wilson when the estimators agree and effective sample size $\neff$ is at least $50$; otherwise report $\neff$ and no interval.
+A small literature sample (\ResRate\% of in-frame records resolved) is illustrative, not a prevalence claim.
 \end{abstract}
-  \smallskip
-  \noindent\textbf{Keywords.}\enspace effective sample size; intrusion detection; confidence
-  intervals; serial dependence; block bootstrap; evaluation methodology; autocorrelation.
-  \vspace{6pt}
-  {\color{headrule}\hrule height 0.6pt}
-  \vspace{10pt}
-  }
-}]
 
-\thispagestyle{plain}
+\begin{graphicalabstract}
+\includegraphics[width=\linewidth]{figures/graphical_abstract.pdf}
+\end{graphicalabstract}
+
 \begin{highlights}
-\item Monday alarm dependence widens one false-positive interval by \MonIfFprRatio
-\item False-positive, recall, and AUC intervals are different constructions
-\item ESS--Wilson holds to $H{=}0.6$ and degrades monotonically above it
-\item One close Wednesday ranking flips; large detector gaps do not
-\item Read the agreement gate on scores: the alarm indicator hides long memory
+\item Network traffic dependence widens a CICIDS2017 false-positive interval \MonIfFprRatio-fold
+\item Each metric needs its own interval: ESS-Wilson, ESS plug-in, block bootstrap
+\item ESS-Wilson holds up to Hurst exponent $H{=}0.6$ and degrades monotonically above it
+\item No tested AUC-difference interval is reliable once attack campaigns are present
+\item Run the estimator-agreement check on scores: the alarm indicator hides long memory
 \end{highlights}
 
-\section{Background and Significance}
+\begin{keywords}
+network security \sep intrusion detection \sep evaluation methodology \sep confidence intervals
+\sep effective sample size \sep serial dependence \sep block bootstrap
+\end{keywords}
+
+\maketitle
+
+\section{Introduction}
+A security team that adopts a network intrusion detector takes two decisions from its evaluation:
+which detector to deploy, and how many false alarms the operation must absorb. The second follows
+from the false-positive rate and the volume of benign traffic, and the base rate of attacks makes it
+a binding constraint~\citep{axelsson2000baserate}. Both decisions inherit the uncertainty of the
+test-set metric. If the interval is too narrow, a defender can replace a detector on a difference
+the evidence does not resolve, or plan alert-handling capacity around a range that is too tight.
+This paper treats that as a validity problem in network-security evidence. It proposes no detector
+and makes no claim about which model detects best. Isolation forest, logistic regression and random
+forest are fixed measurement instruments; the contribution is the evaluation procedure placed
+around a detector's test-set scores and alarms.
+
 Learning-based intrusion-detection papers report a confidence interval on a flow- or window-level
 test metric and read non-overlapping intervals as evidence that one detector beats
 another~\citep{arp2022dos,lew2026deployment}. Overlap is not that test, even for independent
@@ -157,11 +117,8 @@ interval~\citep{wilson1927probable,brown2001interval,mcgrath2024binomial} that t
 treats those rows as exchangeable. A fold-level $t$-test or a Wilcoxon test over
 runs~\citep{wilcoxon1945individual} is a different estimand: the sample is the runs,
 not the telemetry. This paper is about the first. Benign traffic is autocorrelated and
-self-similar on the timescales Paxson and Floyd documented~\citep{paxson1995failure,leland1994self}.
-Later backbone traces show that long-range dependence and piecewise nonstationarity sit in the same
-series~\citep{karagiannis2004nonstationary}, and operational planning series are nonstationary over
-daily and longer horizons~\citep{yang2023nonstat}, so one autocorrelation time is not a property of a
-capture. For a sample mean
+self-similar on the timescales documented by \citet{paxson1995failure} and \citet{leland1994self}.
+For a sample mean
 the variance is inflated by the integrated autocorrelation time
 $\tau_{\mathrm{int}} = 1 + 2\sum_{k\ge 1}\rho_k$, so
 $\neff = n/\tau_{\mathrm{int}}$~\citep{geyer1992practical,vehtari2021ess} and a nominal-$n$ interval is too narrow
@@ -193,6 +150,15 @@ below is their use on false-positive rate, recall, and AUC, with the series each
 uses. The corpus is a small illustrative sample --- \NsfTwoRes{} of \NsfTwo{} screened records coded for
 uncertainty kind, and only \NinframeRes{} of \Ninframe{} resolved in the narrower frame that also
 requires a time-aware split, the remainder access-blocked --- and it motivates the reporting line.
+
+The gap addressed here is how well test-set intervals for these three metrics cover on serially
+dependent intrusion-detection data, and where they stop working. Our objective was to measure the
+empirical coverage of one dependence-aware interval per metric against a named target, which is the
+primary endpoint. We ask three questions. RQ1: which intervals reach approximately nominal coverage
+under short-memory dependence and attack campaigns (\S\ref{sec:coverage})? RQ2: at what strength of
+long memory does the false-positive interval stop working, and can an observable check detect it
+(\S\ref{sec:hurst})? RQ3: can two detectors be ranked from an interval on their AUC difference
+(\S\ref{sec:paired}), and what does that change on real traffic (\S\ref{sec:metric})?
 \subsection{Related work}\label{sec:related}
 \subsubsection{Dependence in traffic}
 Wide-area packet and connection arrivals are long-range dependent and self-similar, not
@@ -204,16 +170,30 @@ The Monday and Wednesday prefixes below are a concrete case.
 
 \subsubsection{Dependence-adjusted inference, and where it stops}
 Biostatistics corrects the AUC interval
-for \emph{clustered} data: Bay et al.~\citep{bay2023dependency} give a dependency-adjusted AUC
+for \emph{clustered} data: \citet{bay2023dependency} give a dependency-adjusted AUC
 confidence interval validated by coverage simulation and state explicitly that the correction assumes
 exchangeable clusters and does not extend to longitudinal or serially dependent data; the
-clustered-ROC lineage traces to Obuchowski~\citep{obuchowski1997nonparametric}. The covariance used
-to compare two AUCs on independent cases is DeLong's~\citep{delong1988comparing}; it has no serial
+clustered-ROC lineage traces to \citet{obuchowski1997nonparametric}. The covariance used
+to compare two AUCs on independent cases is that of \citet{delong1988comparing}; it has no serial
 dependence time. Block cross-validation for autocorrelated
 data~\citep{roberts2017cross,bergmeir2012use} addresses bias in the point estimate. Coverage of a
 test-set interval is a separate question. This paper does not compare interval lengths. Paired
 predictive-accuracy comparison under dependence is the province of forecast-evaluation
 tests~\citep{diebold1995comparing,giacomini2006tests,hansen2011mcs}.
+
+Conformal prediction is the other distribution-free route to coverage, and it has an
+explicit treatment of the failure of exchangeability: Barber and colleagues obtain coverage
+bounds under non-exchangeable data using weighted quantiles and non-symmetric
+scores~\citep{barber2023beyond}, and the approach is being applied to intrusion detection, where
+calibration is the practical difficulty~\citep{li2026conformalids}. It answers a different
+question from the one here. A conformal method returns a prediction set for the \emph{next
+observation} with a guarantee about that observation; the quantity this paper puts an interval
+around is a \emph{summary of a fixed test set} --- its false-positive rate, its recall, its AUC ---
+which is an estimate of a population functional, not a prediction. Coverage of a prediction set and
+coverage of a confidence interval for a metric are not interchangeable, and a conformal guarantee
+on individual flows does not tell a reader whether one detector's reported AUC is distinguishable
+from another's. The two are complementary, and nothing below is an argument against conformal
+prediction.
 
 The same blind spot is being raised in adjacent evaluation literatures. Two 2026 preprints on
 language-model evaluation argue that turn-level findings can be spurious when the sequence is
@@ -224,13 +204,18 @@ problem is not specific to intrusion detection, and at abstract level only
 here, and their quantitative claims are not evidence for anything in this paper.
 
 \subsubsection{Security evaluation methodology}
-The reforms since Sommer and
-Paxson~\citep{sommer2010outside} and Arp et al.~\citep{arp2022dos,pendlebury2019tesseract} target the
-estimate (leakage, temporal snooping, base rates~\citep{axelsson2000baserate}); the Lew et al.\
-review~\citep{lew2026deployment}
+The reforms since \citet{sommer2010outside}, \citet{arp2022dos} and
+\citet{pendlebury2019tesseract} target the
+estimate (leakage, temporal snooping, base rates~\citep{axelsson2000baserate}); the review of \citet{lew2026deployment}
 surveys deployment-oriented evaluation of deep-learning intrusion detection. Time-series anomaly
 benchmarks have their own evaluation failures~\citep{wu2021current}; they do not supply a
-dependence-aware interval for a test-set false-positive rate, recall, or AUC. The second of the
+dependence-aware interval for a test-set false-positive rate, recall, or AUC. The sensitivity of
+IDS conclusions to the evaluation protocol itself is an active concern: \citet{guerra2026protocols} show that
+architectural claims in provenance-based detection can be undone by benchmark and protocol choices,
+including how the test period is separated in time, and the survey of
+\citet{goldschmidt2025datasets} catalogues the data-quality limitations of the public NIDS
+datasets the field evaluates on. Both concern which
+comparison is being made. Neither addresses the width of the interval placed around it. The second of the
 two secondary findings below asks which estimand a reported uncertainty targets. A closely related prior inference is the HED
 early-detection score~\citep{hiremath2026hed}, which
 applies K\"unsch's moving-block bootstrap to a paired comparison of two detectors' scores over a
@@ -238,7 +223,7 @@ serially dependent stream and reports a bootstrap $p$-value, explicitly rejectin
 it does so for its own metric. It does not address the standard test-set false-positive, recall,
 and AUC estimands studied here, and it does not touch the intervals reported on those metrics.
 The corpus below is too small to turn that reading into an absence claim about the literature at large.
-\section{Objective}\label{sec:objective}
+\section{Contributions}\label{sec:objective}
 The primary result is the coverage of three metric-specific test-set intervals, including the
 cells in which those intervals stay below nominal. Feature-level dependence on time-order-audited
 telemetry is supporting evidence. The threshold mismatch and the uncertainty-kind mismatch are
@@ -249,7 +234,9 @@ Wilson plug-in on the benign alarm indicator. The recall interval is an ESS-adju
 plug-in on the attack indicators. The AUC interval is a moving-block bootstrap of the
 Mann--Whitney statistic on joint $(y_t,s_t)$ blocks, with the block length of
 \S\ref{sec:instrument}. Coverage is unconditional and, where the interval is sometimes unavailable,
-conditional on computability (Tables~\ref{tab:covfpr}--\ref{tab:covauc}). The block length is one
+conditional on computability (Tables~\ref{tab:covfpr}--\ref{tab:covauc}). The paired difference of
+two detectors' AUCs, which is the estimand a ranking rests on, is a fourth construction and is
+scored separately in \S\ref{sec:paired}; no version of it is usable under campaign structure. The block length is one
 prespecified rule, evaluated in those tables. It is not proposed as a selector. A gain in coverage
 is not a gain in efficiency. Width is used only as a variance diagnostic.
 \item \textbf{(C2) Feature-level estimated $\DIF$ on time-order-audited telemetry}, at packet, flow, and
@@ -261,7 +248,7 @@ interval. Alarm-indicator widths on these captures are \S\ref{sec:metric}. Cover
 named target on a real benign prefix is the Monday Flow Duration resample in Table~\ref{tab:rule}.
 The telemetry figures themselves remain feature-level.
 \item \textbf{(C3) Two further estimand mismatches, separate from serial dependence.} These are
-the two secondary findings, labelled SF-1 and SF-2 here and in the pre-registration. SF-1: a
+the two secondary findings, labeled SF-1 and SF-2 here and in the pre-registration. SF-1: a
 threshold-conditional interval is the target when the threshold is frozen, and reading it as the
 population metric under a re-learned threshold is a different claim (\S\ref{sec:results-sf1}).
 SF-2: in the records that resolved, reported uncertainty can target seed or fold dispersion rather
@@ -304,7 +291,36 @@ $\neff$, and no interval.\\
 \end{table*}
 
 \FloatBarrier
-\section{Materials and Methods}\label{sec:instrument}
+\section{Methodology}\label{sec:instrument}
+In this section, we develop the instrument that the results then score. We first give an
+overview of the framework. We then define the effective sample size and the dependence-inflation
+factor, and the two estimators of the autocorrelation time behind them, state the target a
+test-set interval is scored against, the three metric-specific intervals, and the reporting floor
+of $\neff=50$. The section closes with the simulation design, the order experiment, and the
+telemetry used to measure dependence on real captures.
+\subsection{Overview of the dependence-aware evaluation framework}\label{sec:overview}
+Figure~\ref{fig:pipeline} summarizes the dependence-aware evaluation framework investigated in this
+study. The central idea is that different intrusion-detection performance metrics are computed
+from different underlying time-ordered processes and therefore require metric-specific
+uncertainty constructions. False-positive rate is evaluated from the benign alarm indicator,
+recall from the ordered attack-indicator subsequence, and AUC from temporally ordered label-score
+pairs. Consequently, no single dependence-adjustment procedure is assumed to be appropriate for
+all metrics. An interval is reported only when two estimators of the autocorrelation time agree
+and $\neff\ge50$; otherwise $\neff$ is reported alone. Each construction is then assessed by its
+coverage under serial dependence, in simulation and on audited telemetry.
+\begin{figure*}[!t]
+\centering
+\caption{The evaluation pipeline. Each metric is given the series its interval actually uses (2);
+the autocorrelation time of that series is estimated twice (3); the agreement gate is read on the
+benign score series, not on the alarm indicator (4); a metric-specific interval is reported only
+when the gate passes and $\neff\ge50$, otherwise $\neff$ alone (5); and the reporting line records
+every input (6). The lower band is the evidence that scores the pipeline: coverage simulation
+against a named target, feature-level dependence in audited telemetry, and the paired AUC
+difference, for which no tested construction is usable under campaigns. The diagram is drawn
+with matplotlib from a script drafted with Claude (Anthropic, Claude Opus 5.5) and checked by the
+authors against \S\ref{sec:instrument}.}\label{fig:pipeline}
+\includegraphics[width=\textwidth]{figures/fig_pipeline.pdf}
+\end{figure*}
 \subsection{Effective sample size and the dependence-inflation factor}
 For a serially dependent sequence the variance of a sample mean is inflated by the integrated
 autocorrelation time $\tau_{\mathrm{int}} = 1 + 2\sum_{k\ge 1}\rho_k$, so the effective sample size
@@ -345,7 +361,7 @@ telemetry tables do not.
 
 \subsection{What a test-set interval targets}
 A test-set interval is computed at the operating threshold learned on the training split, so its
-estimand is the detector's FPR or recall \emph{at that realised threshold} --- the
+estimand is the detector's FPR or recall \emph{at that realized threshold} --- the
 threshold-conditional metric --- not the population value under a re-learned threshold. False-positive
 and recall coverage use that target. For the Gaussian cells it matches the generator. The AR(1)
 background is not standardized. Innovations are $\varepsilon_t\sim N(0,1)$, the initial state is
@@ -441,7 +457,7 @@ The integrated autocorrelation time is finite for
 short-memory series. Under long-range dependence it need not stay finite as $n$ grows. The
 simulation sweeps $\HGridN$ fractional-Gaussian-noise conditions~\citep{mandelbrot1968fractional},
 $H$ from $\HGridLo$ to $\HGridHi$, the long-memory Gaussian model in the block-resampling analysis of
-Zhang, Lahiri and Nordman~\citep{zhang2022block}. $H{=}0.8$ is reported with the coverage
+\citet{zhang2022block}. $H{=}0.8$ is reported with the coverage
 tables and the grid is \S\ref{sec:hurst}. Everything but $H$ is held at that cell's settings, so
 the $H{=}0.8$ arm of the grid reproduces the coverage table's row; the build fails if it does not. For $H>1/2$ the autocovariances need not be summable, so a finite $\tau_{\mathrm{int}}$ is
 the wrong variance for the ESS plug-in. Lahiri's moving-block result for a long-range-dependent
@@ -452,7 +468,7 @@ Gaussian long-memory family; it is not a survey of long-memory processes.
 \begin{table}[ht]
 \centering
 \caption{Recall coverage against the number of attack episodes. Fixed episode length, AR(1)
-background, fixed threshold, $R{=}400$. From \texttt{diagnostics/p13\_episode.csv}.}\label{tab:episodes}
+background, fixed threshold, $R{=}400$. From \texttt{diagnostics/episode\_curve.csv}.}\label{tab:episodes}
 \onetab
 \input{tables/tab_episode_curve.tex}
 \end{table}
@@ -520,6 +536,11 @@ and batch-means estimates agree within a factor of two, and $\neff\ge50$. The es
 
 \FloatBarrier
 \section{Results}\label{sec:results}
+In this section, we report how each interval of \S\ref{sec:instrument} performs. We begin with
+coverage under the simulation factorial, locate the long-memory boundary of the false-positive
+interval, and show how the order presented to the interval changes what it can see. We then turn
+to feature-level dependence on real telemetry, the two secondary estimand mismatches, the paired
+comparison of two detectors, and the metric-level intervals on the captures themselves.
 \subsection{Coverage under the factorial}\label{sec:coverage}
 Under independence the false-positive and recall intervals are approximately at the nominal level
 in the tested cells. The AUC
@@ -575,7 +596,7 @@ match is not attempted here.
 \centering
 \caption{Reported standard error against the spread of (estimate $-$ conditional target),
 $R{=}400$ per cell. A ratio below one is an interval narrower than the estimator's variability.
-From \texttt{diagnostics/}\allowbreak\texttt{p121\_width.csv}.}\label{tab:width}
+From \texttt{diagnostics/}\allowbreak\texttt{width.csv}.}\label{tab:width}
 \fulltab
 \input{tables/tab_width.tex}
 \end{table*}
@@ -603,7 +624,7 @@ asymptotic approximation is already accurate at that block count.
 moving-block bootstrap's spread relative to that standard deviation, and coverage scored against
 the reference and against $E[\widehat{\mathrm{AUC}}_n]$. $R{=}300$, $B{=}200$, replicates with an
 empty class dropped. From
-\texttt{diagnostics/}\allowbreak\texttt{p122\_auc.csv}.}\label{tab:aucmech}
+\texttt{diagnostics/}\allowbreak\texttt{auc\_mechanics.csv}.}\label{tab:aucmech}
 \fulltab
 \input{tables/tab_auc_mech.tex}
 \end{table*}
@@ -623,7 +644,7 @@ else held at the reported settings, moves the mean block length from $\BlkLOne$ 
 multiplier $1$ to $\BlkBothTwo$ at $2$ and $\BlkBothFour$ at $4$, and in the campaigns-only cell
 from $\BlkCampOne$ to $\BlkCampTwo$ to $\BlkCampFour$. Coverage shows modest sensitivity to the
 multiplier over this range, decreasing slightly as it increases, so the prespecified value is not
-the most favourable of the three. The campaigns-only shortfall persists at all three multipliers:
+the most favorable of the three. The campaigns-only shortfall persists at all three multipliers:
 at multiplier $1$ the moving-block interval still covers below the i.i.d.\ bootstrap's
 $\AucCampNaiveCond$. That shortfall is therefore not explained by the prespecified multiplier.
 Table~\ref{tab:aucmech} associates it with under-dispersion of the moving-block distribution
@@ -744,7 +765,7 @@ Geyer and batch means within $2\times$ and $\neff\ge50$; ``admits'' is the fract
 replicates it passes. Applied to the alarm indicator it admits almost everything; applied to the
 benign score series that generates those alarms it tracks coverage. $\hat\tau$ entries are medians.
 Coverage is the ESS--Wilson column of Table~\ref{tab:hurst}. From
-\texttt{diagnostics/}\allowbreak\texttt{p127\_gate.csv}.}\label{tab:gate}
+\texttt{diagnostics/}\allowbreak\texttt{gate.csv}.}\label{tab:gate}
 \fulltab
 \input{tables/tab_gate.tex}
 \end{table*}
@@ -757,7 +778,7 @@ prespecified gate admits --- Geyer and batch means within $2\times$ and $\neff\g
 the alarm indicator the interval is built from and on the benign score series behind it, against
 the same coverage curve. The indicator gate stays near one while coverage falls to $\FprHNine$.
 $n{=}5000$, $R{=}500$. From \texttt{results/hurst\_sweep.csv} and
-\texttt{diagnostics/p127\_gate.csv}.}\label{fig:hurst}
+\texttt{diagnostics/gate.csv}.}\label{fig:hurst}
 \includegraphics[width=\textwidth]{figures/fig_hurst.pdf}
 \end{figure*}
 
@@ -775,8 +796,8 @@ are unconditional coverage $\pm$ Monte Carlo SE. From
 
 \subsection{Order available to the interval}\label{sec:split}
 For the stationary generator used here, the random partition preserves the marginal
-point-estimation target, while changing which temporal neighbours remain in the test subset. If
-that sequence is then analysed
+point-estimation target, while changing which temporal neighbors remain in the test subset. If
+that sequence is then analyzed
 in shuffled order, the estimator of $\tau_{\mathrm{int}}$ cannot see the dependence that remains.
 
 Table~\ref{tab:split} is one run of the false-positive interval on the short-memory campaign
@@ -822,7 +843,7 @@ estimate of the dependence distribution over every feature in the capture. Time 
 any estimate: a dataset with non-monotone or colliding timestamps, or shipped without a timestamp,
 cannot have its dependence reconstructed from the released sequence alone. A single estimated
 autocorrelation time describes a series only where that dependence is stable enough to be
-summarised by one number. The flow byte-rate below is the counterexample.
+summarized by one number. The flow byte-rate below is the counterexample.
 
 \paragraph{Packet grain} From the CICIDS2017 capture in true sub-second order (pcapng), across
 three non-adjacent windows spanning about five hours (Table~\ref{tab:packet}), only the early
@@ -845,7 +866,7 @@ length, $\neff$ and agreement-rule status. From \texttt{results/packet\_windows.
 
 
 \paragraph{Flow grain} On CICIDS2017 flows the shipped timestamp is minute-resolution.
-Engelen, Rimmer and Joosen, and Lanvin and colleagues, document flow-construction, labelling,
+Engelen, Rimmer and Joosen, and Lanvin and colleagues, document flow-construction, labeling,
 timestamp, and packet-order defects in this
 release~\citep{engelen2021troubleshooting,lanvin2023cicids}; the series below are the as-shipped flows, not a
 repaired reconstruction. Duration, byte rate, and inter-arrival time are CICFlowMeter time
@@ -907,14 +928,14 @@ interval. The mismatch is reading it as the population metric under a re-learned
 \begin{table}[ht]
 \centering
 \caption{The conflation gap under independence. From
-\texttt{diagnostics/p1\_estimand.py}.}\label{tab:sf1}
+\texttt{diagnostics/estimand\_conflation.py}.}\label{tab:sf1}
 \onetab
 \input{tables/tab_sf1.tex}
 \end{table}
 
 \subsection{Reported uncertainty in an illustrative sample}\label{sec:results-sf2}
 Two nested populations are reported here and they are not interchangeable.
-The \emph{SF-2 coding set} is every screened record coded for which estimand its reported uncertainty targets, whether or not its split was time-aware: \NsfTwoRes{} of \NsfTwo{} resolved far enough to code, \NsfTwoStrict{} of them from fetched full text or arXiv source, and \NsfTwoUnres{} did not resolve and are carried as unknown.
+The \emph{SF-2 coding set} is every screened record coded for which estimand its reported uncertainty targets, whether or not its split was time-aware: \NsfTwoRes{} of \NsfTwo{} resolved far enough to code, \NsfTwoStrict{} of them from fetched full text or arXiv source, and \NsfTwoUnres{} did not resolve and are carried as unknown. The record search was assisted by Perplexity (Perplexity AI), used as a web search tool; the inclusion decision and the coding of every record are the authors' and are recorded in the released inclusion log.
 The \emph{in-frame pool} is the narrower frame of the retired prevalence hypothesis, which additionally requires a time-aware split \emph{and} a reported interval: \NinframeRes{} of \Ninframe{} records (\ResRate\%) resolved, which is why no prevalence is claimed (\S\ref{sec:limitations}).
 Table~\ref{tab:sf2} is the uncertainty kind on the SF-2 coding set, not on the in-frame pool: most report none, and seed or fold dispersion outnumbers a test-set interval \NsfTwoSeedFold{} to \NsfTwoTestCI{}.
 \begin{table}[H]
@@ -930,7 +951,46 @@ From \texttt{corpus/sf2\_uncertainty\_kind.csv}.}\label{tab:sf2}
 These are frequencies in that sample. They are not a prevalence.
 Seed or fold dispersion is model-fitting instability on a fixed test set, and its standard error shrinks as the seed count rises (Table~\ref{tab:sf2sim}, Appendix~\ref{app:seed}).
 Among the records resolved in the SF-2 coding set, none described a time-aware split; that adoption fact is attributed to larger corpora~\citep{arp2022dos,pendlebury2019tesseract,lew2026deployment}.
-Several benchmarks are consumed from releases whose timestamps are dropped or colliding, so the dependence cannot be reconstructed from the released sequence alone.
+Several benchmarks are consumed from releases whose timestamps are dropped or colliding, so the dependence cannot be reconstructed from the released sequence alone; the limitations of the public NIDS releases are surveyed at scale by \citet{goldschmidt2025datasets}.
+
+\subsection{Choosing between two detectors}\label{sec:paired}
+The three intervals above are each about one detector. The decision a reader actually makes is a
+comparison, and a comparison is a different estimand with a different variance. We score it here
+because \S\ref{sec:metric} uses such an interval on a real capture.
+
+Two detectors are given the same traffic: one label chain and one background series shared between
+them, independent detector-specific noise, and a true AUC gap of about $\PairTruth$. Both arms take
+the basic bootstrap interval, so the moving-block column is the construction
+\S\ref{sec:metric} applies. Table~\ref{tab:paired} is the result, and it does not follow
+the single-detector pattern.
+
+Background dependence alone costs almost nothing: the moving-block interval covers $\PairBgMbb$
+where the single-detector AUC interval was far below nominal in the same background. A difference
+of two detectors on one capture cancels most of the shared background, which is the component the
+single-AUC interval was failing on. What does not cancel is the label structure. With campaigns
+present, coverage falls to $\PairCampMbb$ and $\PairBothMbb$, and the background makes little
+further difference. Which rows are attacks is shared by both detectors, so the clustering of those
+rows drives the variance of the difference and survives the subtraction.
+
+The ordering also reverses. In every dependent cell the moving-block difference interval covers
+\emph{below} the i.i.d.\ bootstrap it is meant to improve on --- $\PairCampMbb$ against
+$\PairCampIid$, and $\PairBothMbb$ against $\PairBothIid$ --- while under independence the two
+agree ($\PairCtrlMbb$ and $\PairCtrlIid$). This is the campaigns-only AUC pathology of
+\S\ref{sec:coverage} appearing again, and here it covers the whole dependent column rather than one
+cell. We report no paired-difference interval as usable under campaign structure. The consequence
+for the real-data comparison is stated in \S\ref{sec:metric}: where the two constructions disagree
+on a close pair, that pair is unresolved, not decided by the block interval.
+\begin{table*}[!t]
+\centering
+\caption{Coverage of the paired AUC-difference interval, $n{=}5000$, $R{=}\PairR$, $B{=}200$. Two
+detectors on one capture: shared labels and background, independent detector noise, true difference
+$\PairTruth$. Both arms are basic bootstrap intervals, matching
+\texttt{scripts/}\allowbreak\texttt{metric\_level\_intervals.py}. Cells are unconditional coverage
+$\pm$ Monte Carlo SE. From
+\texttt{diagnostics/}\allowbreak\texttt{paired\_difference.csv}.}\label{tab:paired}
+\fulltab
+\input{tables/tab_paired.tex}
+\end{table*}
 
 \subsection{Metric-level intervals on the captures}\label{sec:metric}
 The tables above estimate feature series. Here the series is the detector.
@@ -939,7 +999,12 @@ On the Monday prefix, which contains no attacks, the isolation-forest~\citep{liu
 Wednesday's isolation-forest alarm indicator is a different series, with $\DIF=\WedIfFprDif$, and it is not the Monday result.
 Figure~\ref{fig:decision} shows that prefix beside Wednesday and the three Wednesday detector pairs.
 The logistic-regression minus random-forest~\citep{breiman2001random} AUC difference is $\WedAucFlip$.
-The i.i.d.\ interval excludes zero and the moving-block interval includes zero.
+The i.i.d.\ interval excludes zero and the moving-block interval includes zero. We do not read that
+disagreement as the moving-block interval correcting the other one. Neither construction is
+validated for this estimand: \S\ref{sec:paired} scores both on the generator and finds the
+moving-block difference interval covering at $\PairBothMbb$ and the i.i.d.\ one at $\PairBothIid$
+once campaigns are present, so on a capture with campaign structure the honest statement is that
+this pair is not resolvable with either interval, not that one of them settles it.
 DeLong's covariance for that contrast assumes independent cases~\citep{delong1988comparing}.
 The clustered AUC adjustment still assumes exchangeable groups and has no serial dependence
 time~\citep{bay2023dependency}.
@@ -955,6 +1020,17 @@ The isolation-forest versus random-forest score series on Wednesday fails the es
 
 \FloatBarrier
 \section{Discussion}
+Our objective was to measure how well one dependence-aware interval per metric covers on serially
+dependent intrusion-detection test sets. For RQ1, ESS--Wilson reached approximately nominal
+false-positive coverage in the strongest short-memory cell ($\FprNtwEss$), while the recall and AUC
+intervals raised coverage and stayed short of nominal ($\RecallNtwEss$ and $\AucNtwMbb$). For RQ2,
+ESS--Wilson held to $H{=}0.6$ and degraded above it, and in this family the agreement check screened
+that regime only when read on the benign score series. For RQ3, no tested interval for an AUC
+difference was reliable once campaigns were present ($\PairBothIid$ i.i.d., $\PairBothMbb$ moving
+block), so the close Wednesday ranking remains unresolved. The rest of this section separates what
+the simulation and the telemetry can each establish, explains why coverage depends on both the
+metric and the dependence regime, answers the objections that the evidence already addresses, and
+states the implications for network-security practice.
 \subsection{Simulation and telemetry answer different questions}
 The simulation and the telemetry tables answer different questions. In the simulation, metric-level
 dependence is the dependence of the series the interval uses, and the result is coverage against a
@@ -974,7 +1050,10 @@ distribution of the AUC. Substituting an effective sample size is not by itself 
 correction; the variance construction has to match the stochastic structure of the particular
 metric. Nor is a quality gate automatically a safeguard: the series a gate is computed on decides
 what it can see, and the thresholded indicator an alarm-rate interval is built from is the series
-least able to reveal long memory (\S\ref{sec:hurst}). Higher coverage is not an efficiency result.
+least able to reveal long memory (\S\ref{sec:hurst}). And a construction that helps one estimand
+can fail another built from it: the same moving block that raises single-AUC coverage sits below
+the i.i.d.\ bootstrap on the paired difference once campaigns are present (\S\ref{sec:paired}),
+which is the estimand a detector ranking actually uses. Higher coverage is not an efficiency result.
 The block length is one prespecified rule. These runs do not select it. Flow Bytes/s in
 Table~\ref{tab:flowdif} is why one autocorrelation time does not describe that capture.
 
@@ -988,6 +1067,20 @@ reduce temporal leakage in the point estimate~\citep{arp2022dos,pendlebury2019te
 has naive false-positive coverage $\SplitTempNaive$. A random partition does not by itself make
 the interval uncorrectable: restoring the subset's original order changes the interval
 (\S\ref{sec:split}).
+
+\subsection{Implications for network-security practice}\label{sec:practice}
+Three consequences follow for a team that evaluates detectors before deployment. They restate the
+results in operational terms and are not a field study; no security-operations data were analyzed.
+First, expected false alarms are the false-positive rate times the benign volume, so at a fixed
+volume an interval on that rate is also an interval on alert load. On the Monday prefix the
+dependence-aware range for the isolation-forest alert load is $\MonIfFprRatio$ times as wide as the
+nominal-$n$ range. That factor belongs to this detector and prefix and does not transfer to another
+capture. Second, attacks that arrive in campaigns are the condition under which no tested interval
+for an AUC difference is reliable (\S\ref{sec:paired}). A close ranking on such a capture should be
+treated as unresolved, as with the Wednesday pair in \S\ref{sec:metric}, and a replacement decision
+should not rest on it. Third, when the two autocorrelation estimators disagree on the benign score
+series, the evaluation should report $\neff$ and no interval rather than an alert-load range that
+the data cannot support (Table~\ref{tab:rule}).
 
 \FloatBarrier
 \section{Limitations and future work}\label{sec:limitations}
@@ -1016,6 +1109,9 @@ $\HGridN$ values of fractional Gaussian noise (\S\ref{sec:hurst}); no other long
 and no nonstationary alternative, was tested.
 \item Reported moving-block intervals use one prespecified length \eqref{eq:L}. The multiplier is evaluated. It is not a selector.
 \item The AUC bootstrap sits short of nominal under independence: $\AucCtrlNaive$ for the i.i.d.\ bootstrap and $\AucCtrlMbb$ for the moving block.
+\item No paired-difference interval is usable under campaign structure ($\PairBothMbb$,
+\S\ref{sec:paired}), so the comparison a reader makes between two detectors is the estimand this
+paper leaves without a working construction.
 \item Flow Bytes/s is near $\FlowBpsMon$ on Monday and $\FlowBpsWed$ on Wednesday, so one autocorrelation time does not describe that capture.
 \end{enumerate}
 
@@ -1042,7 +1138,7 @@ Carlo reference for AUC. They are not a comparison of
 interval length, and they are not a general validity result. The order presented to the dependence
 estimator determines whether the serial structure is visible; restoring the order of a
 random-partition subset does not reproduce the time-ordered half. The telemetry tables characterize
-feature-level dependence. The Monday Flow Duration result in Table~\ref{tab:rule} is a frozen-threshold resample of one benign prefix, not a detector retrained on each draw. Table~\ref{tab:scope} is the reporting line: the claims the experiments support, and the ones they do not.
+feature-level dependence. The Monday Flow Duration result in Table~\ref{tab:rule} is a frozen-threshold resample of one benign prefix, not a detector retrained on each draw. For network-security evaluation, the practical consequence is that a detector choice or an alert-load estimate should carry only the certainty its dependence-aware evidence supports (\S\ref{sec:practice}). Table~\ref{tab:scope} is the reporting line: the claims the experiments support, and the ones they do not.
 \begin{table*}[!t]
 \centering
 \caption{What the reported experiments establish. Each row is the claim a reader can take from the
@@ -1058,6 +1154,7 @@ One autocorrelation time describes a capture & no\\
 ESS-Wilson reaches approximately nominal FPR coverage in the strongest short-memory cells & yes\\
 The recall plug-in reaches nominal coverage under combined dependence & no\\
 The moving-block AUC interval reaches nominal coverage under combined dependence & no\\
+A paired AUC-difference interval is usable when campaigns are present & no\\
 The tested corrections cover in the $H{=}0.8$ condition & no\\
 ESS-Wilson has a located long-memory boundary, at about $H{=}0.6$ in this family & yes\\
 The agreement gate on the alarm indicator screens out that regime & no\\
@@ -1070,62 +1167,12 @@ The results apply to every IDS dataset & no\\
 \end{table*}
 
 
-\section*{Author contributions}
-\textbf{Soheib Cherih:} conceptualization, methodology, software, validation, formal analysis,
-investigation, data curation, writing---original draft, visualization.
-\textbf{Sabri Lyazid:} conceptualization, methodology, supervision, writing---review \& editing,
-project administration.
-\textbf{Okba Kazar:} supervision, writing---review \& editing.
-
-\section*{Funding}
-This research received no specific grant from any funding agency in the public, commercial, or
-not-for-profit sectors.
-
-\section*{Declaration of competing interest}
-The authors declare no competing financial interests or personal relationships that could have
-appeared to influence the work reported in this paper.
-
-\section*{Ethics}
-The study uses the public CICIDS2017 capture and MQTT alert-stream telemetry collected by the
-authors from an ambient-assisted-living deployment. The series analysed here are numeric
-window-level aggregates of a broker alert stream at a $60$-minute grain --- counts, rates,
-inter-arrival summaries, and scalar entropy and diversity statistics. No message payload, topic
-string, device or user identifier, or location value appears in them or in any figure or table in
-this paper. Attack windows come from a separate isolated-broker testbed with no live participants.
-No intervention was performed on the deployment.
-
-\section*{Data and code availability}
-The instrument, the coverage simulation, every table, and the screening log are released as a
-reproducible artifact: \texttt{make all} regenerates all tables from \texttt{results/} and rebuilds
-this paper. The coverage, episode-curve, threshold-mismatch, and telemetry figures in the prose are
-macros written from the result and diagnostic files by the script that writes the tables, so a
-number cannot be restated by hand. A build-time check fails if the abstract's
-dependence-inflation figures drift from those files, if a macro disagrees with the file it came
-from, or if a generated macro stops being used in the text. The block-length sensitivity is
-produced by a separate script with its own random stream, and its multiplier-$2$ arm reruns the
-reported AUC cells; the build fails if the two disagree by more than twice their combined Monte
-Carlo standard error. The Hurst sweep of \S\ref{sec:hurst} is a separate script holding the
-reported long-memory cell's seed, $n$, $R$ and $B$ fixed, and the build fails if its $H{=}0.8$ arm
-stops reproducing that cell, if coverage or $\neff$ stops being monotone in $H$, or if the gate
-orderings the reporting rule rests on stop holding. The artifact is
-released as a single snapshot of the submitted state. The instrument was frozen before any
-real-data analysis and the pre-registration before the corpus was coded; both freezes, and every
-subsequent deviation, are dated in \texttt{prereg/CHANGELOG.md}, which ships with the artifact. The
-pre-registration, its change log, the verbatim screening criteria, and the full inclusion log
-(Option A, single-coder) are in that snapshot. A public archive DOI is not attached to this draft.
-The AAL MQTT-bridge window features underlying the window-grain results are available from the
-corresponding author on reasonable request; the raw MQTT alert stream is not redistributed, having
-been captured from a live deployment. The retired H3a claim-coding arm is not part of the release:
-its schema is kept as a record in \texttt{docs/h3a\_schema.md}, and the reason it was retired is
-in the pre-registration change log. No claim in this paper depends on it.
-
-\section*{Declaration of generative AI and AI-assisted technologies}
-The authors used generative AI and AI-assisted tools during the preparation of this work. After
-using these tools, the authors reviewed and edited the content as needed and take full
-responsibility for the content of the publication. All quantitative results are regenerated by the
-released code and were checked by the authors. Generative AI is not listed as an author.
-
+\FloatBarrier
 \appendix
+% Elsevier numbering inside appendices: Table A.1, Fig. A.1, Eq. (A.1).
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
 \section{Extended limitations}\label{app:limits}
 These are the objections behind Table~\ref{tab:rule}. They constrain the claims. They are not a
 second results section. They are grouped by what they limit: the corpus, the telemetry estimates,
@@ -1211,8 +1258,8 @@ the resampling, and the generator.
   $n$ and one prevalence, so it locates the boundary to within a grid step and no more. A
   subsampling rate following $1-H$ is future work. The method as reported is a short-memory
   procedure whose failure is now bracketed rather than exhibited at a point.
-\item \textbf{Three references are cited without a full-text read.} Obuchowski (1997) is
-  paywalled, and the clustered-AUC seam is therefore attributed to Bay et al.\ (2023), which was
+\item \textbf{Three references are cited without a full-text read.} \citet{obuchowski1997nonparametric} is
+  paywalled, and the clustered-AUC seam is therefore attributed to \citet{bay2023dependency}, which was
   read in full. The two language-model-evaluation preprints in \S\ref{sec:related} were verified at
   abstract level and are cited only as precedent that the problem arises in other evaluation
   literatures; no number or claim in this paper rests on them. Every other reference was resolved,
@@ -1224,7 +1271,7 @@ On a fixed test set the standard error of a seed mean shrinks as the seed count 
 \begin{table}[ht]
 \centering
 \caption{Seed standard error vs.\ true test-set sampling standard deviation, by seed count $K$
-(fixed test set). From \texttt{diagnostics/sf2\_seed\_vs\_testset.py}.}\label{tab:sf2sim}
+(fixed test set). From \texttt{diagnostics/seed\_vs\_testset.py}.}\label{tab:sf2sim}
 \onetab
 \input{tables/tab_sf2_sim.tex}
 \end{table}
@@ -1270,12 +1317,12 @@ tables use $B{=}200$. The long-run Monte Carlo reference those AUC intervals are
 is \eqref{eq:auc}. The tables also report a moving-block false-positive interval, an
 episode bootstrap and a moving-block recall interval, and a block jackknife of the AUC whose block
 count is capped at 50~\citep{dehling2010ustat}. Those columns are not the claims. The stationary
-bootstrap of Politis and Romano~\citep{politis1994stationary} is implemented and is not a column in
+bootstrap of \citet{politis1994stationary} is implemented and is not a column in
 the coverage tables. The moving-block intervals keep \eqref{eq:L}. The jackknife does not: after
 that length is computed, it is raised to $\max(L,\lceil n/50\rceil)$ so that at most $50$ blocks
 are deleted.
-The subsampling route of Politis, Romano and Wolf~\citep{politis1999subsampling} for long memory,
-and the long-memory block-resampling results of Zhang, Lahiri and Nordman~\citep{zhang2022block}, are
+The subsampling route of \citet{politis1999subsampling} for long memory,
+and the long-memory block-resampling results of \citet{zhang2022block}, are
 recorded as future work and are not evaluated. Above $H{=}0.6$ ESS-Wilson and the moving-block
 false-positive interval both undercover, and the degradation is monotone in $H$
 (Table~\ref{tab:hurst}).
@@ -1305,5 +1352,63 @@ isolated-broker testbed, at a $60$-minute grain; no third-party dataset is repla
 Releases that drop or collide timestamps, or that ship a class-balanced resample, are reported
 as not correctable from the released sequence.
 
+\printcredits
+
+\section*{Declaration of competing interest}
+The authors declare no competing financial interests or personal relationships that could have
+appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or
+not-for-profit sectors.
+
+\section*{Ethics}
+This study involved no human participants and processed no personal data, and therefore did not
+require institutional ethics review. It uses the public CICIDS2017 capture and MQTT alert-stream
+telemetry collected by the authors from an ambient-assisted-living deployment. The series analyzed here are numeric
+window-level aggregates of a broker alert stream at a $60$-minute grain --- counts, rates,
+inter-arrival summaries, and scalar entropy and diversity statistics. No message payload, topic
+string, device or user identifier, or location value appears in them or in any figure or table in
+this paper. Attack windows come from a separate isolated-broker testbed with no live participants.
+No intervention was performed on the deployment.
+
+\section*{Data and code availability}
+The instrument, the coverage simulation, every table, and the screening log are released as a
+reproducible artifact at \url{https://github.com/Dsoheib/T13-ESS}: \texttt{make all} regenerates
+all tables from \texttt{results/} and rebuilds this paper. The coverage, episode-curve, threshold-mismatch, and telemetry figures in the prose are
+macros written from the result and diagnostic files by the script that writes the tables, so a
+number cannot be restated by hand. A build-time check fails if the abstract's
+dependence-inflation figures drift from those files, if a macro disagrees with the file it came
+from, or if a generated macro stops being used in the text. The block-length sensitivity is
+produced by a separate script with its own random stream, and its multiplier-$2$ arm reruns the
+reported AUC cells; the build fails if the two disagree by more than twice their combined Monte
+Carlo standard error. The Hurst sweep of \S\ref{sec:hurst} is a separate script holding the
+reported long-memory cell's seed, $n$, $R$ and $B$ fixed, and the build fails if its $H{=}0.8$ arm
+stops reproducing that cell, if coverage or $\neff$ stops being monotone in $H$, or if the gate
+orderings the reporting rule rests on stop holding. The artifact is
+released as a single snapshot of the submitted state. The instrument was frozen before any
+real-data analysis and the pre-registration before the corpus was coded; both freezes, and every
+subsequent deviation, are dated in \texttt{prereg/CHANGELOG.md}, which ships with the artifact. The
+pre-registration, its change log, the verbatim screening criteria, and the full inclusion log
+(Option A, single-coder) are in that snapshot. A public archive DOI is not attached to this
+draft; the repository above is the citable location until one is minted.
+The AAL MQTT-bridge window features underlying the window-grain results are available from the
+corresponding author on reasonable request; the raw MQTT alert stream is not redistributed, having
+been captured from a live deployment. The retired H3a claim-coding arm is not part of the release:
+its schema is kept as a record in \texttt{docs/h3a\_schema.md}, and the reason it was retired is
+in the pre-registration change log. No claim in this paper depends on it.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the authors used Perplexity (Perplexity AI) in order to
+search the literature, including the record search behind the screening of
+\S\ref{sec:results-sf2}; QuillBot (QuillBot/Learneo) in order to improve the language and
+phrasing of the text; and Claude (Anthropic, Claude Opus 5.5) in order to check the manuscript for errors and internal inconsistencies, to verify reference metadata, to revise the framing and wording of the title, abstract, introduction, discussion and conclusion, and to draft the plotting script for the conceptual
+diagram in Figure~\ref{fig:pipeline}. The full inclusion log and the verbatim screening criteria
+are released so that any reader can re-screen, and no inter-rater reliability is claimed. After
+using these tools, the authors reviewed and edited the content as needed and take full
+responsibility for the content of the published article. All quantitative results are
+regenerated by the released code and were checked by the authors.
+
+\bibliographystyle{cas-model2-names}
 \bibliography{bib/refs}
 \end{document}

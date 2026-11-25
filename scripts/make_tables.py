@@ -67,8 +67,6 @@ w("tab_coverage_n20000.tex", NOTE + metric_table(d20, [
     ["\\cellbr{FPR}{naive}", "\\cellbr{FPR}{ESS-Wilson}",
      "\\cellbr{recall}{naive}", "\\cellbr{recall}{ESS}",
      "\\cellbr{AUC}{i.i.d.}", "\\cellbr{AUC}{block}"], scn20))
-# legacy filename kept as the FPR table so older links do not point at a mixed column
-w("tab_coverage.tex", open(os.path.join(OUT, "tab_coverage_fpr.tex")).read())
 
 # ---- T2: CICIDS flow-grain DIF, (b) headline with (a) as-shipped shown alongside, per feature x day ----
 f = pd.read_csv("results/cicids_flow_dif.csv")
@@ -112,12 +110,12 @@ w("tab_grain_summary.tex", star(
   + "% The qualifying entry is the median of the qualifying series. n=1 is that single series, not a distributional median.\n"
   + "% flow qualifying is the as-shipped (a) order; the within-minute-shuffle (b) median is 17, Table~\\ref{tab:flowdif}\n")
 
-# ---- T4: SF-1 conflation gap, read from the diagnostic run (diagnostics/p1_estimand.py) ----
-_p1 = pd.read_csv("diagnostics/p1_iid.csv")
+# ---- T4: SF-1 conflation gap, read from the diagnostic run (diagnostics/estimand_conflation.py) ----
+_p1 = pd.read_csv("diagnostics/estimand_iid.csv")
 def _p1cov(interval, estimand):
     r = _p1[(_p1.metric == "fpr") & (_p1.interval == interval) & (_p1.estimand == estimand)]
     if len(r) != 1:
-        raise SystemExit(f"tab_sf1: expected one p1_iid row for fpr/{interval}/{estimand}")
+        raise SystemExit(f"tab_sf1: expected one estimand_iid row for fpr/{interval}/{estimand}")
     return f"{float(r.coverage.iloc[0]):.2f}"
 _p1R = int(_p1.R_used.max())
 w("tab_sf1.tex", star("llc",
@@ -126,7 +124,7 @@ w("tab_sf1.tex", star("llc",
   f"naive-normal FPR & threshold-conditional & {_p1cov('naive','cond')}\\\\\n"
   f"Wilson FPR & threshold-conditional & {_p1cov('wilson','cond')}\\\\\n"
   "\\bottomrule\n")
-  + f"% source: diagnostics/p1_estimand.py -> diagnostics/p1_iid.csv, iid, R={_p1R}\n")
+  + f"% source: diagnostics/estimand_conflation.py -> diagnostics/estimand_iid.csv, iid, R={_p1R}\n")
 
 # ---- T5: SF-2 distribution, two cuts + unknown (P71/C3) ----
 # NOTE on denominators (P123). Two distinct populations are reported in the paper and they must
@@ -161,7 +159,7 @@ w("tab_sf2.tex", star("lcc",
   + "\\bottomrule\n"))
 
 # ---- T6: SF-2 simulation, per K (std vs SE) ----
-sim = pd.read_csv("diagnostics/sf2_seed_vs_testset.csv")
+sim = pd.read_csv("diagnostics/seed_vs_testset.csv")
 rows=[f"{int(r.K_seeds)} & {r.seed_std:.4f} & {r.seed_SE:.4f} & {r['testset_sd(true)']:.4f} & {r['seed_SE / testset_sd']:.2f} \\\\"
       for _,r in sim.iterrows()]
 w("tab_sf2_sim.tex", star("ccccc",
@@ -182,21 +180,13 @@ for _,r in pk.iterrows():
 w("tab_packet.tex", star("lllccl",
   "\\toprule\nwindow & len (s) & series & \\cellbr{DIF}{(geyer/batch)} & $n_{\\mathrm{eff}}$ & rule\\\\\n\\midrule\n"
   + "\n".join(rows) + "\n\\bottomrule\n"))
-# ---- T8: split 2x2 (SF-H6) from split_2x2.csv + p18_within_test.csv ----
-sp = pd.read_csv("results/split_2x2_n20000.csv"); p18 = pd.read_csv("diagnostics/p18_within_test.csv")  # n=20000 run of record (docs/n20000_confirmation.md)
+# ---- T8: split 2x2 (SF-H6) from split_2x2.csv + within_test_dependence.csv ----
+sp = pd.read_csv("results/split_2x2_n20000.csv"); p18 = pd.read_csv("diagnostics/within_test_dependence.csv")  # n=20000 run of record (docs/n20000_confirmation.md)
 def fpr(split, iv):
     r = sp[(sp.metric=="fpr")&(sp.split==split)&(sp.interval==iv)]
     return f"{r.cov_uncond.iloc[0]:.2f}" if len(r) else "--"
 def tau(split, col):
     r = p18[p18.split==split]; return f"{r[col].iloc[0]:.1f}" if len(r) else "--"
-w("tab_split.tex", star("lcccc",
-  "\\toprule\norder the estimator sees & \\cellbr{FPR naive}{Wilson} & \\cellbr{FPR}{ESS-Wilson} & \\cellbr{$\\tau$ in}{true time} & $\\tau$ seen\\\\\n\\midrule\n"
-  + f"time-ordered test half & {fpr('temporal','naiveWilson')} & {fpr('temporal','corrWilson')} & {tau('temporal','tau_true_order')} & {tau('temporal','tau_seen_order')}\\\\\n"
-  + f"shuffled test sequence & {fpr('random','naiveWilson')} & {fpr('random','corrWilson')} & {tau('random','tau_true_order')} & {tau('random','tau_seen_order')}\\\\\n"
-  + "\\bottomrule\n")
-  + "% ESS-Wilson is the plug-in that replaces n with n_eff inside Wilson. "
-  "tau is the benign-score integrated autocorrelation time "
-  "(diagnostics/p18_within_test.csv). Coverage is results/split_2x2_n20000.csv.\n")
 
 # ---- restored-order arm (results/split_order_arms.csv), if the run has been written ----
 arms_path = "results/split_order_arms.csv"
@@ -225,8 +215,8 @@ if os.path.exists(arms_path):
       "\\toprule\n\\cellbr{order available}{to the interval} & \\cellbr{naive}{Wilson} & ESS-Wilson & \\cellbr{$\\tau$ in}{that order}\\\\\n\\midrule\n"
       + "\n".join(rows) + "\n\\bottomrule\n") + tau_line)
 
-# ---- episode-count curve (diagnostics/p13_episode.csv): the n_eff<50 wording's evidence ----
-p13 = pd.read_csv("diagnostics/p13_episode.csv")
+# ---- episode-count curve (diagnostics/episode_curve.csv): the n_eff<50 wording's evidence ----
+p13 = pd.read_csv("diagnostics/episode_curve.csv")
 rows = [f"{int(r.E_attack)} & ${r.cov_naive:.2f}\\pm{r.se_naive:.2f}$ & ${r.cov_ess:.2f}\\pm{r.se_ess:.2f}$ & "
         f"${r.cov_episode:.2f}\\pm{r.se_episode:.2f}$ & ${r.cov_mbb:.2f}\\pm{r.se_mbb:.2f}$ \\\\"
         for _, r in p13.iterrows()]
@@ -252,7 +242,7 @@ w("tab_block_length.tex", star("llcccc",
   + "% $\\star$ = the prespecified multiplier of Eq. (L). Source results/block_length_sensitivity.csv.\n")
 
 # ---- T10: reported width against the spread of (estimate - conditional target) ----
-_wd = pd.read_csv("diagnostics/p121_width.csv")
+_wd = pd.read_csv("diagnostics/width.csv")
 _wdrows = []
 for _, r in _wd.iterrows():
     met = "FPR" if r.metric == "fpr" else "recall"
@@ -262,10 +252,10 @@ w("tab_width.tex", star("llcccccc",
   "\\toprule\ncell & $n$ & metric & sd(est.\\ $-$ target) & "
   "\\cellbr{se, dependence-}{aware} & ratio & \\cellbr{ratio,}{naive} & \\cellbr{$\\neff$}{overstated}\\\\\n\\midrule\n"
   + "\n".join(_wdrows) + "\n\\bottomrule\n")
-  + "% source diagnostics/p121_width_vs_estimand.py -> diagnostics/p121_width.csv\n")
+  + "% source diagnostics/width_vs_estimand.py -> diagnostics/width.csv\n")
 
 # ---- T11: AUC mechanism -- target offset vs bootstrap width ----
-_am = pd.read_csv("diagnostics/p122_auc.csv")
+_am = pd.read_csv("diagnostics/auc_mechanics.csv")
 _amrows = [f"{r.cell} & {int(r.n)} & {r.mean_L:.0f} & {r.offset_in_sd:+.2f} & "
            f"{r.boot_sd_ratio:.2f} & {r.cov_vs_reference:.2f} & {r.cov_vs_mean_auc_n:.2f} \\\\"
            for _, r in _am.iterrows()]
@@ -274,7 +264,7 @@ w("tab_auc_mech.tex", star("llccccc",
   "\\cellbr{bootstrap sd /}{sampling sd} & \\cellbr{coverage vs}{reference} & "
   "\\cellbr{coverage vs}{$E[\\widehat{\\mathrm{AUC}}_n]$}\\\\\n"
   "\\midrule\n" + "\n".join(_amrows) + "\n\\bottomrule\n")
-  + "% source diagnostics/p122_auc_mechanics.py -> diagnostics/p122_auc.csv\n")
+  + "% source diagnostics/auc_mechanics.py -> diagnostics/auc_mechanics.csv\n")
 
 # ---- T12: the long-memory boundary -- coverage across a grid of Hurst exponents (P124) ----
 # One Hurst value cannot say where a short-memory procedure stops working. This sweep holds the
@@ -326,7 +316,7 @@ HURST_MACROS = "".join([
 ])
 
 # ---- T13: does the reporting gate detect the regime its own interval fails in? (P127) ----
-_gt = pd.read_csv("diagnostics/p127_gate.csv")
+_gt = pd.read_csv("diagnostics/gate.csv")
 def _g(H, series, col="gate_pass_rate"):
     r = _gt[(_gt.H.round(2) == round(H, 2)) & (_gt.series == series)]
     if len(r) != 1:
@@ -347,7 +337,7 @@ w("tab_gate.tex", star("llcccc",
   "\\cellbr{alarm indicator}{$\\hat\\tau$ Geyer / batch} & \\cellbr{gate admits}{(indicator)} & "
   "\\cellbr{benign score}{$\\hat\\tau$ Geyer / batch} & \\cellbr{gate admits}{(score)}\\\\\n\\midrule\n"
   + "\n".join(_gtrows) + "\n\\bottomrule\n")
-  + "% source diagnostics/p127_gate_vs_memory.py -> diagnostics/p127_gate.csv; coverage from results/hurst_sweep.csv\n")
+  + "% source diagnostics/gate_vs_memory.py -> diagnostics/gate.csv; coverage from results/hurst_sweep.csv\n")
 
 GATE_MACROS = "".join([
   f"\\newcommand{{\\GateAlarmNine}}{{{_g(0.9,'alarm'):.2f}}}\n",
@@ -360,6 +350,39 @@ GATE_MACROS = "".join([
   f"\\newcommand{{\\TauScoreNine}}{{{_g(0.9,'score','median_tau_geyer'):.0f}}}\n",
   f"\\newcommand{{\\GateR}}{{{int(_gt.R.max())}}}\n",
   f"\\newcommand{{\\GateScoreNeffOnlyNine}}{{{_g(0.9,'score','neff_ok_rate'):.2f}}}\n",
+])
+
+# ---- T14: coverage of the paired AUC-difference interval (the ranking estimand) ----
+_pd = pd.read_csv("diagnostics/paired_difference.csv")
+def _pdc(cell, interval, col="cov_uncond"):
+    r = _pd[(_pd.cell == cell) & (_pd.interval == interval)]
+    if len(r) != 1:
+        raise SystemExit(f"tab_paired: expected one row for {cell}/{interval}")
+    return float(r.iloc[0][col])
+_ORDER = ["iid (control)", "background only", "campaigns only", "both"]
+_pdrows = []
+for _c in _ORDER:
+    _cells = []
+    for _iv in ("iid bootstrap", "moving block"):
+        _cells.append(f"${_pdc(_c,_iv):.2f}\\pm{_pdc(_c,_iv,'mc_se_uncond'):.2f}$")
+    _pdrows.append(f"{_c} & " + " & ".join(_cells)
+                   + f" & {_pdc(_c,'moving block','mean_width'):.4f} \\\\")
+w("tab_paired.tex", star("lccc",
+  "\\toprule\ncell & \\cellbr{i.i.d.}{bootstrap} & \\cellbr{moving}{block} & "
+  "\\cellbr{mean width}{(moving block)}\\\\\n\\midrule\n"
+  + "\n".join(_pdrows) + "\n\\bottomrule\n")
+  + "% source diagnostics/paired_difference_coverage.py -> diagnostics/paired_difference.csv\n")
+
+PAIRED_MACROS = "".join([
+  f"\\newcommand{{\\PairCtrlIid}}{{{_pdc('iid (control)','iid bootstrap'):.2f}}}\n",
+  f"\\newcommand{{\\PairCtrlMbb}}{{{_pdc('iid (control)','moving block'):.2f}}}\n",
+  f"\\newcommand{{\\PairBgMbb}}{{{_pdc('background only','moving block'):.2f}}}\n",
+  f"\\newcommand{{\\PairCampIid}}{{{_pdc('campaigns only','iid bootstrap'):.2f}}}\n",
+  f"\\newcommand{{\\PairCampMbb}}{{{_pdc('campaigns only','moving block'):.2f}}}\n",
+  f"\\newcommand{{\\PairBothIid}}{{{_pdc('both','iid bootstrap'):.2f}}}\n",
+  f"\\newcommand{{\\PairBothMbb}}{{{_pdc('both','moving block'):.2f}}}\n",
+  f"\\newcommand{{\\PairTruth}}{{{_pdc('both','moving block','truth_auc_diff'):.3f}}}\n",
+  f"\\newcommand{{\\PairR}}{{{int(_pd.R.max())}}}\n",
 ])
 
 # ---- corpus-count macros (reproducible; used in prose) ----
@@ -390,7 +413,7 @@ open(os.path.join(OUT,"corpus_macros.tex"),"w").write(
   f"\\newcommand{{\\ResRate}}{{{resrate}}}\n\\newcommand{{\\DiffBenign}}{{{diffbenign}}}\n"
   f"\\newcommand{{\\AucIid}}{{{auciid}}}\n\\newcommand{{\\LrdH}}{{{lrdh}}}\n"
   + SFTWO_MACROS)
-print("wrote tab_split.tex, corpus_macros.tex")
+print("wrote corpus_macros.tex")
 
 def _row(df, scn, metric, interval):
     r = df[(df.scenario == scn) & (df.metric == metric) & (df.interval == interval)]
@@ -464,7 +487,7 @@ _specs = {
     "TauTemp": f"{float(_arms_meta.tau_temporal_seen):.1f}",
     "TauShuf": f"{float(_arms_meta.tau_shuffled_seen):.1f}",
     "TauRest": f"{float(_arms_meta.tau_shuffled_true):.1f}",
-    # SF-1 (diagnostics/p1_iid.csv) and the episode curve (diagnostics/p13_episode.csv)
+    # SF-1 (diagnostics/estimand_iid.csv) and the episode curve (diagnostics/episode_curve.csv)
     "SfOnePop": _p1cov("naive", "pop"),
     "SfOneCond": _p1cov("naive", "cond"),
     "SfOneWilson": _p1cov("wilson", "cond"),
@@ -630,6 +653,6 @@ if _specs["FlowBpsMon"] != _specs["FlowBpsTue"]:
 _lines = ["% Generated by scripts/make_tables.py from results/ and diagnostics/. Do not edit.\n"]
 for _k, _v in _specs.items():
     _lines.append(f"\\newcommand{{\\{_k}}}{{{_v}}}\n")
-open(os.path.join(OUT, "prose_macros.tex"), "w").write("".join(_lines) + HURST_MACROS + GATE_MACROS)
+open(os.path.join(OUT, "prose_macros.tex"), "w").write("".join(_lines) + HURST_MACROS + GATE_MACROS + PAIRED_MACROS)
 print("wrote prose_macros.tex")
 print("all tables written to", OUT)

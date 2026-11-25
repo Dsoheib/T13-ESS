@@ -14,7 +14,7 @@ residual floor. I no longer believe "the correction repairs the interval" as a g
 
 ---
 
-## P1 — control failure diagnosed (`p1_estimand.py`, iid, R=1000)
+## P1 — control failure diagnosed (`estimand_conflation.py`, iid, R=1000)
 
 Coverage of the interval against three candidate estimands:
 
@@ -38,7 +38,7 @@ re-learned threshold. Scoring against the population truth (the original code) p
 normal/ESS approximation (0.932 → 0.953). AUC is threshold-free, so it never had the gap
 (0.944) — which independently confirms the mechanism.
 
-## P4 — estimator is sound; the scenario is mixed (`p4_tau_vs_n.py`, R=40)
+## P4 — estimator is sound; the scenario is mixed (`tau_vs_n.py`, R=40)
 
 tau_hat (Geyer) vs analytic tau, by n:
 

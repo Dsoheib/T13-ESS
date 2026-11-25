@@ -55,4 +55,4 @@ if __name__ == "__main__":
     df = curve(R=a.R, B=a.B)
     pd.set_option("display.width", 200)
     print(df.to_string(index=False))
-    df.to_csv("diagnostics/p13_episode.csv", index=False)
+    df.to_csv("diagnostics/episode_curve.csv", index=False)

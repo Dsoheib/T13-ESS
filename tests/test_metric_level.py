@@ -7,7 +7,7 @@ from scipy.signal import lfilter
 sys.path.insert(0, "src")
 sys.path.insert(0, "scripts")
 
-from week1_metric_level import (  # noqa: E402
+from metric_level_intervals import (  # noqa: E402
     WIDTH_FLOOR,
     aal_attack_indicator,
     excludes_zero,

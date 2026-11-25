@@ -1,7 +1,8 @@
 # Dependence-aware intervals for intrusion-detection evaluation
 
-Code and data for *When Confidence Intervals Assume Independence: Dependence-Aware Intervals for
-Intrusion-Detection Evaluation* (submitted to *Computers & Security*).
+Code and data for *When Confidence Intervals Assume Independence: Dependence-Aware Evaluation of Network Intrusion Detection Metrics* (manuscript for *Journal of Information Security and Applications*).
+
+Repository: <https://github.com/Dsoheib/T13-ESS>
 
 A confidence interval on a test-set metric assumes the rows are exchangeable. Intrusion-detection
 telemetry is serially dependent, so that interval can be too narrow. This repository is the

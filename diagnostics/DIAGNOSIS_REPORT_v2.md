@@ -3,7 +3,7 @@
 Answers the second verdict (P9–P16). One coverage implementation now (`t13.sim.coverage_run`);
 `corrected_coverage.py`, `one_replication`, `floor_curve` deleted. Every cell dual-reported.
 Paper still unbuilt. Data: `results/coverage_sim.csv` (+`_meta`), `results/control_iid_R1000.csv`,
-`results/split_2x2.csv`, `diagnostics/p13_episode.csv`.
+`results/split_2x2.csv`, `diagnostics/episode_curve.csv`.
 
 ## P9 — the R_used drop mechanism, and dual reporting
 
@@ -74,7 +74,7 @@ SE. Under the random split the correction does nothing (0.724 → 0.732): shuffl
 tau_hat → 1, so no widening is applied — the time order the correction needs was destroyed.
 H6 is **retained**.
 
-## P13 — episode bootstrap: FLOOR, not bug (`p13_episode.csv`)
+## P13 — episode bootstrap: FLOOR, not bug (`episode_curve.csv`)
 
 AR(0.9) background, fixed threshold, attack episodes swept 5→200:
 

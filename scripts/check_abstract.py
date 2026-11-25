@@ -65,14 +65,14 @@ _expect["TauTemp"] = f"{float(_meta.tau_temporal_seen):.1f}"
 _expect["TauRest"] = f"{float(_meta.tau_shuffled_true):.1f}"
 
 # SF-1 threshold mismatch and the episode curve: prose read from the diagnostic runs.
-_p1 = pd.read_csv("diagnostics/p1_iid.csv")
+_p1 = pd.read_csv("diagnostics/estimand_iid.csv")
 def _p1cov(interval, estimand):
     r = _p1[(_p1.metric == "fpr") & (_p1.interval == interval) & (_p1.estimand == estimand)]
-    need(len(r) == 1, f"expected one p1_iid row for fpr/{interval}/{estimand}")
+    need(len(r) == 1, f"expected one estimand_iid row for fpr/{interval}/{estimand}")
     return f"{float(r.coverage.iloc[0]):.2f}"
 _expect["SfOnePop"] = _p1cov("naive", "pop")
 _expect["SfOneCond"] = _p1cov("naive", "cond")
-_p13 = pd.read_csv("diagnostics/p13_episode.csv")
+_p13 = pd.read_csv("diagnostics/episode_curve.csv")
 for _name, _E in (("EpEssFive", 5), ("EpEssTwenty", 20)):
     _r = _p13[_p13.E_attack == _E]
     need(len(_r) == 1, f"expected one episode row for E={_E}")
@@ -93,7 +93,7 @@ _flow_q = pd.to_numeric(dh[(dh.grain == "flow") & (dh.status == "qualifying")].d
 _expect["FlowQualMed"] = f"{float(np.median(_flow_q)):.1f}"
 
 # Width-versus-estimand prose.
-_wd = pd.read_csv("diagnostics/p121_width.csv")
+_wd = pd.read_csv("diagnostics/width.csv")
 def _wdcell(cell, n, metric, col):
     r = _wd[(_wd.cell == cell) & (_wd.n == n) & (_wd.metric == metric)]
     need(len(r) == 1, f"expected one width row for {cell}/{n}/{metric}")
@@ -114,7 +114,7 @@ if not (_wfpr > 0.9 and _wrec < 0.9):
           f"Reread that paragraph; this is not a build failure.", file=sys.stderr)
 
 # AUC mechanism prose.
-_am = pd.read_csv("diagnostics/p122_auc.csv")
+_am = pd.read_csv("diagnostics/auc_mechanics.csv")
 def _amcell(cell, n, col, fmt="{:.2f}"):
     r = _am[(_am.cell == cell) & (_am.n == n)]
     need(len(r) == 1, f"expected one AUC-mechanism row for {cell}/{n}")
@@ -207,7 +207,7 @@ need(float(_hrow(0.7, "fpr", "corrWilson").cov_uncond) > float(_hrow(0.7, "fpr",
 # The paper's headline recommendation now depends on two orderings: the alarm-indicator gate
 # admits the long-memory cells, and the score-series gate does not. If either stops holding the
 # recommendation is wrong and this must fail before the PDF is built.
-_gt = pd.read_csv("diagnostics/p127_gate.csv")
+_gt = pd.read_csv("diagnostics/gate.csv")
 def _gate(H, series, col="gate_pass_rate"):
     r = _gt[(_gt.H.round(2) == round(H, 2)) & (_gt.series == series)]
     need(len(r) == 1, f"expected one p127 row for H={H}/{series}")
@@ -300,7 +300,7 @@ _unused = sorted(t for t in _defined if "\\" + t not in body)
 need(not _unused, f"prose macros defined but not used in the manuscript: {_unused}")
 
 for _tok in ("MonIfFprRatio", "MonIfFprDif", "FprNtwEss", "RecallNtwEss", "AucNtwMbb",
-             "FprLrdEss", "TraceDurEssFive", "TraceDurEssTwenty", "ResRate"):
+             "FprLrdEss", "PairBothIid", "PairBothMbb", "ResRate"):
     need("\\" + _tok in ab, f"abstract is missing \\{_tok}")
 need("not a prevalence" in ab, "abstract prevalence caveat missing")
 need(r"report $\neff$ and no interval" in ab, "abstract reporting-rule sentence missing")
@@ -334,11 +334,50 @@ for _item in _items:
 _htxt = [ln.strip() for ln in open("paper/highlights.txt") if ln.strip()]
 need(_htxt == _items, f"highlights.txt does not match the manuscript highlights: {_items}")
 
-_kw = re.search(r"\\textbf\{Keywords\.\}\\enspace(.*?)\\vspace", body, re.S)
+_kw = re.search(r"\\begin\{keywords\}(.*?)\\end\{keywords\}", body, re.S)
 need(_kw is not None, "keywords block not found in the manuscript")
-_kwm = re.sub(r"[%\s]+", " ", _kw.group(1)).strip().rstrip(".")
+# cas-dc separates keywords with \sep; keywords.txt uses "; ".
+_kwm = re.sub(r"\s*\\sep\s*", "; ", re.sub(r"[%\s]+", " ", _kw.group(1))).strip().rstrip(".")
 _kwf = open("paper/keywords.txt").read().strip().rstrip(".")
 need(_kwm == _kwf, f"keywords.txt does not match the manuscript:\n  tex: {_kwm!r}\n  txt: {_kwf!r}")
+
+# ---- the Ethics section must carry an explicit statement ----
+# The target journal expects one. The statement here is that no review was required because
+# the study has no human participants and no personal data; if that ever stops being the wording,
+# this fails so the change is deliberate rather than silent.
+need("did not\nrequire institutional ethics review" in body or
+     "did not require institutional ethics review" in re.sub(r"\s+", " ", body),
+     "the Ethics section no longer states the institutional position")
+
+# ---- the paired-difference result the ranking claim now rests on (P138) ----
+# Two orderings carry the S4.7 wording: the difference interval is fine when only the background
+# is dependent, and it fails once campaigns are present, with the moving block BELOW the i.i.d.
+# bootstrap there. If either stops holding, the re-scoped Wednesday sentence is wrong.
+_pd = pd.read_csv("diagnostics/paired_difference.csv")
+def _pdc(cell, interval, col="cov_uncond"):
+    r = _pd[(_pd.cell == cell) & (_pd.interval == interval)]
+    need(len(r) == 1, f"expected one paired_difference row for {cell}/{interval}")
+    return float(r.iloc[0][col])
+need(_pdc("background only", "moving block") >= 0.90,
+     f"the paired interval no longer holds under background-only dependence "
+     f"({_pdc('background only','moving block')}); the cancellation argument must be rewritten")
+for _c in ("campaigns only", "both"):
+    need(_pdc(_c, "moving block") <= 0.80,
+         f"the paired moving-block interval now covers {_pdc(_c,'moving block')} in {_c}; "
+         f"the claim that it is unusable under campaigns must be rewritten")
+    need(_pdc(_c, "moving block") < _pdc(_c, "iid bootstrap"),
+         f"in {_c} the moving-block paired interval is no longer below the i.i.d. one "
+         f"({_pdc(_c,'moving block')} vs {_pdc(_c,'iid bootstrap')}); the reversal sentence is wrong")
+for _n, _c, _iv in (("PairCtrlIid","iid (control)","iid bootstrap"),
+                    ("PairCtrlMbb","iid (control)","moving block"),
+                    ("PairBgMbb","background only","moving block"),
+                    ("PairCampIid","campaigns only","iid bootstrap"),
+                    ("PairCampMbb","campaigns only","moving block"),
+                    ("PairBothIid","both","iid bootstrap"),
+                    ("PairBothMbb","both","moving block")):
+    _expect[_n] = f"{_pdc(_c,_iv):.2f}"
+need("not resolvable with either interval" in re.sub(r"\s+", " ", body),
+     "the re-scoped Wednesday sentence is missing")
 
 _readme = open("README.md").read()
 need(_expect["FlowQualMed"] in _readme and _expect["WinQMed"] in _readme,
