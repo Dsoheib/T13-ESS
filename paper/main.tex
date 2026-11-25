@@ -1374,7 +1374,8 @@ No intervention was performed on the deployment.
 
 \section*{Data and code availability}
 The instrument, the coverage simulation, every table, and the screening log are released as a
-reproducible artifact at \url{https://github.com/Dsoheib/T13-ESS}: \texttt{make all} regenerates
+reproducible artifact at \url{https://github.com/Dsoheib/T13-ESS}, archived as release v0.5.0 at
+\url{https://doi.org/10.5281/zenodo.24545243}: \texttt{make all} regenerates
 all tables from \texttt{results/} and rebuilds this paper. The coverage, episode-curve, threshold-mismatch, and telemetry figures in the prose are
 macros written from the result and diagnostic files by the script that writes the tables, so a
 number cannot be restated by hand. A build-time check fails if the abstract's
@@ -1390,8 +1391,7 @@ released as a single snapshot of the submitted state. The instrument was frozen 
 real-data analysis and the pre-registration before the corpus was coded; both freezes, and every
 subsequent deviation, are dated in \texttt{prereg/CHANGELOG.md}, which ships with the artifact. The
 pre-registration, its change log, the verbatim screening criteria, and the full inclusion log
-(Option A, single-coder) are in that snapshot. A public archive DOI is not attached to this
-draft; the repository above is the citable location until one is minted.
+(Option A, single-coder) are in that snapshot.
 The AAL MQTT-bridge window features underlying the window-grain results are available from the
 corresponding author on reasonable request; the raw MQTT alert stream is not redistributed, having
 been captured from a live deployment. The retired H3a claim-coding arm is not part of the release:
